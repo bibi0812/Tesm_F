@@ -2,32 +2,22 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    
+    Rigidbody2D rbody;
+    float axisH = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rbody=this.GetComponent<Rigidbody2D>();
     }
-    public float speed = 5f;//主人公動き仮
-
+    
     // Update is called once per frame
     void Update()
     {
-        //主人公動き仮
-        // 矢印キー入力の取得
-        float moveX = 0f;
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            moveX = 1f;  // →キーで右へ
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveX = -1f; // ←キーで左へ
-        }
-
-        // プレイヤーを移動させる
-        transform.Translate(moveX * speed * Time.deltaTime, 0, 0);
+        axisH = Input.GetAxisRaw("Horizontal");
+    }
+    private void FixedUpdate()
+    {
+        rbody.linearVelocity = new Vector2(axisH * 3.0f, rbody.linearVelocity.y);
     }
 }
