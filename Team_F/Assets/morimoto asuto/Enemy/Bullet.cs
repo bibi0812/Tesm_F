@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewEmptyCSharpScript : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     // Update is called once per frame
     void Update()
@@ -13,7 +13,7 @@ public class NewEmptyCSharpScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // 敵（タグが "Enemy"）に接触したら、この弾を消す
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy")) 
         {
             Destroy(gameObject);
         }

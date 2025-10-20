@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Braek
   - Boll
+  - Enemy
   layers:
   - Default
   - TransparentFX
