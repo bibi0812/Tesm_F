@@ -8,6 +8,6 @@ public class BollBraek : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(speed, speed);
+        rb.linearVelocity = new Vector2(speed, speed);
     }
 }
