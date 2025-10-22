@@ -26,7 +26,7 @@ public class BollReset : MonoBehaviour
             if (rb != null)
             {
                 // ★ ここを 'velocity' に修正しました ★
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
             }
 

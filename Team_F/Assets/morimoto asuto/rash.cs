@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /*<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
 
 =======
 <<<<<<< HEAD
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
 /*
 =======
 using System.Collections;
@@ -157,4 +164,14 @@ public class PlayerDash : MonoBehaviour
 <<<<<<< HEAD
 =======
 */
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
+>>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
