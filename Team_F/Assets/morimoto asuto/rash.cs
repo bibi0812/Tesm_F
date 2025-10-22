@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+/*<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/*<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dacd970a26d343fcb975aaf5b9e29f8f799c345b
+=======
+<<<<<<< HEAD
+>>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
+
+=======
+<<<<<<< HEAD
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
+/*
+=======
+using System.Collections;
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> a47ded5e5de7baa181b5a5fc648ba0103be991b9
 using UnityEngine;
 
 public class DashOnRightClick : MonoBehaviour
@@ -67,3 +91,23 @@ public class DashOnRightClick : MonoBehaviour
         }
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+*/
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
+>>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
+>>>>>>> dacd970a26d343fcb975aaf5b9e29f8f799c345b
+>>>>>>> a47ded5e5de7baa181b5a5fc648ba0103be991b9

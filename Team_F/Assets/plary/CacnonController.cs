@@ -1,37 +1,38 @@
-using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// �}�E�X�N���b�N�ɉ����ăI�u�W�F�N�g�i�e�j�𔭎˂���C��̃R���g���[���[
+/// マウスクリックに応じてオブジェクト（弾）を発射する砲台のコントローラー
 /// </summary>
 public class CannonController : MonoBehaviour
 {
-    public GameObject objPrefab; // ���˂���I�u�W�F�N�g�i�e�j�̃v���n�u
 
-    public float fireSpeed = 20.0f;  // �e�̔��ˑ��x
+    public GameObject objPrefab; // 発射するオブジェクト（弾）のプレハブ
 
-    private Transform gateTransform; // ���ˌ��igate�j��Transform
+    public float fireSpeed = 20.0f;  // 弾の発射速度
+
+    private Transform gateTransform; // 発射口（gate）のTransform
 
     void Start()
     {
-        // ���̃I�u�W�F�N�g�̎q���� "gate" �Ƃ������O�̃I�u�W�F�N�g��T��
+        // このオブジェクトの子から "gate" という名前のオブジェクトを探す
         gateTransform = transform.Find("gate");
         if (gateTransform == null)
         {
-            Debug.LogError("gate�I�u�W�F�N�g��������܂���B�q�G�����L�[���� 'gate' �Ƃ������O�̎q�I�u�W�F�N�g������܂����H");
+            Debug.LogError("gateオブジェクトが見つかりません。ヒエラルキー内に 'gate' という名前の子オブジェクトがありますか？");
         }
 
-        // �v���n�u���ݒ肳��Ă��Ȃ��ꍇ�Ɍx�����o��
+        // プレハブが設定されていない場合に警告を出す
         if (objPrefab == null)
         {
-            Debug.LogError("objPrefab ���ݒ肳��Ă��܂���B�C���X�y�N�^�Ńv���n�u�����蓖�ĂĂ��������B");
+            Debug.LogError("objPrefab が設定されていません。インスペクタでプレハブを割り当ててください。");
         }
     }
 
     void Update()
     {
-        // �}�E�X�̍��N���b�N�������ꂽ�Ƃ��ɒe�𔭎�
+        // マウスの左クリックが押されたときに弾を発射
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -39,82 +40,179 @@ public class CannonController : MonoBehaviour
     }
 
     /// <summary>
-    /// �e�𐶐����Ĕ��˂��鏈��
+    /// 弾を生成して発射する処理
     /// </summary>
     void Shoot()
     {
-        
+        // プレハブや発射口が設定されていなければ処理を中断
+        if (objPrefab == null || gateTransform == null) return;
 
-        
+        // メインカメラの存在チェック
+        if (Camera.main == null)
+        {
+            Debug.LogError("Main Camera が見つかりません。");
+            return;
+        }
 
-            // �K�v�ȏ�񂪑����Ă��Ȃ���Ώ������Ȃ�
+        // マウスのスクリーン座標をワールド座標に変換
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f; // 2DなのでZ軸は0に固定
 
-            if (objPrefab == null || gateTransform == null) return;
+        // 発射位置とマウス位置を2Dベクトルで取得
+        Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+        Vector2 firePosition = new Vector2(gateTransform.position.x, gateTransform.position.y);
 
-            // ���C���J���������݂��邩�`�F�b�N
+        // 発射方向を計算し正規化（長さ1にする）
+        Vector2 direction = (mousePos2D - firePosition).normalized;
 
-            if (Camera.main == null)
+        // 発射方向の角度を計算（ラジアンから度に変換）
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0, 0, angle); // 回転情報を作成
 
-            {
+        // 弾を生成（位置と回転を指定）
+        GameObject obj = Instantiate(objPrefab, firePosition, rot);
 
-                Debug.LogError("Main Camera ��������܂���B");
+        // 弾の寿命を3秒に設定。3秒後に自動で破棄される
+        Destroy(obj, 2f);
 
-                return;
+        // Rigidbody2Dコンポーネントを取得して力を加える
+        Rigidbody2D rbody = obj.GetComponent<Rigidbody2D>();
+        if (rbody != null)
+        {
+            // インパルス（瞬間的な力）を加えて弾を発射
+            rbody.AddForce(direction * fireSpeed, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Debug.LogWarning("生成された弾に Rigidbody2D がアタッチされていません。プレハブを確認してください。");
+        }
 
-            }
+        // もし砲台を弾の発射方向に回転させたい場合は以下のコメントを外してください
+        // transform.rotation = rot;
+    }
 
-            // �}�E�X�̃X�N���[�����W�����[���h���W�ɕϊ�
+}*/
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+/// <summary>
+/// マウスクリックに応じてオブジェクト（弾）を発射する砲台のコントローラー
+/// </summary>
+public class CannonController : MonoBehaviour
+{
 
-            mouseWorldPos.z = 0f; // 2D�Ȃ̂�Z���W��0�ɌŒ�
+    public GameObject objPrefab; // 発射するオブジェクト（弾）のプレハブ
 
-            // ���ˈʒu�ƃ}�E�X�ʒu��2D�x�N�g���Ŏ擾
+    public float fireSpeed = 20.0f;  // 弾の発射速度
 
-            Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+    // 🔥 新しく追加する変数
+    public float recoilForce = 10.0f; // 砲台に加わる反動の強さ
 
-            Vector2 firePosition = new Vector2(gateTransform.position.x, gateTransform.position.y);
+    private Transform gateTransform; // 発射口（gate）のTransform
+    private Rigidbody2D cannonRbody; // 砲台自身のRigidbody2D
 
-            // ���˕������v�Z�����K���i�����x�N�g���𒷂�1�ɂ���j
+    void Start()
+    {
+        // このオブジェクトの子から "gate" という名前のオブジェクトを探す
+        gateTransform = transform.Find("gate");
+        if (gateTransform == null)
+        {
+            Debug.LogError("gateオブジェクトが見つかりません。ヒエラルキー内に 'gate' という名前の子オブジェクトがありますか？");
+        }
 
-            Vector2 direction = (mousePos2D - firePosition).normalized;
+        // プレハブが設定されていない場合に警告を出す
+        if (objPrefab == null)
+        {
+            Debug.LogError("objPrefab が設定されていません。インスペクタでプレハブを割り当ててください。");
+        }
 
-            // ���˕����ɉ������p�x���v�Z�i���W�A�����x�j
+        // 砲台自身の Rigidbody2D を取得
+        cannonRbody = GetComponent<Rigidbody2D>();
+        if (cannonRbody == null)
+        {
+            // 反動を実現するためには、砲台（このスクリプトがアタッチされているオブジェクト）に
+            // Rigidbody2D が必須です。
+            Debug.LogError("このオブジェクトに Rigidbody2D がアタッチされていません。反動処理（リコイル）は動作しません。");
+        }
+    }
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    void Update()
+    {
+        // マウスの左クリックが押されたときに弾を発射
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
 
-            Quaternion rot = Quaternion.Euler(0, 0, angle); // ��]�����쐬
+    /// <summary>
+    /// 弾を生成して発射する処理
+    /// </summary>
+    void Shoot()
+    {
+        // プレハブや発射口が設定されていなければ処理を中断
+        if (objPrefab == null || gateTransform == null) return;
 
-            // �e�𐶐��i�ʒu�Ɗp�x���w��j
+        // メインカメラの存在チェック
+        if (Camera.main == null)
+        {
+            Debug.LogError("Main Camera が見つかりません。");
+            return;
+        }
 
-            GameObject obj = Instantiate(objPrefab, firePosition, rot);
+        // (中略：マウス座標のワールド変換)
 
-            // �e��Rigidbody2D���A�^�b�`����Ă���Η͂������Ĕ���
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f; // 2DなのでZ軸は0に固定
 
-            Rigidbody2D rbody = obj.GetComponent<Rigidbody2D>();
+        // 発射位置とマウス位置を2Dベクトルで取得
+        Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+        Vector2 firePosition = new Vector2(gateTransform.position.x, gateTransform.position.y);
 
-            if (rbody != null)
+        // 発射方向を計算し正規化（長さ1にする）
+        Vector2 direction = (mousePos2D - firePosition).normalized;
 
-            {
+        // (中略：角度と回転情報の計算)
 
-                rbody.AddForce(direction * fireSpeed, ForceMode2D.Impulse);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0, 0, angle); // 回転情報を作成
 
-            }
+        // 弾を生成（位置と回転を指定）
+        GameObject obj = Instantiate(objPrefab, firePosition, rot);
 
-            else
+        // 弾の寿命を2秒に設定。2秒後に自動で破棄される
+        Destroy(obj, 2f);
 
-            {
+        // Rigidbody2Dコンポーネントを取得して力を加える（弾を発射）
+        Rigidbody2D rbody = obj.GetComponent<Rigidbody2D>();
+        if (rbody != null)
+        {
+            // インパルス（瞬間的な力）を加えて弾を発射
+            rbody.AddForce(direction * fireSpeed, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Debug.LogWarning("生成された弾に Rigidbody2D がアタッチされていません。プレハブを確認してください。");
+        }
 
-                Debug.LogWarning("�������ꂽ�e�� Rigidbody2D ���A�^�b�`����Ă��܂���B�v���n�u���m�F���Ă��������B");
+        // -------------------------------------------------------------
 
-            }
+        // 🔥 砲台に反動を加える処理
+        if (cannonRbody != null)
+        {
+            // 弾の発射方向とは逆の方向を計算
+            Vector2 recoilDirection = -direction;
 
-            // �� �C��̌�����e�̔��˕����ɕς������ꍇ�͂��̍s��L���ɂ���
+            // 砲台自身の Rigidbody2D にインパルス（瞬間的な力）を加える
+            // これにより、発射方向とは逆へ砲台が吹き飛ばされる
+            cannonRbody.AddForce(recoilDirection * recoilForce, ForceMode2D.Impulse);
+        }
 
-            //transform.rotation = rot;
+        // -------------------------------------------------------------
 
-        
-
+        // もし砲台を弾の発射方向に回転させたい場合は以下のコメントを外してください
+        // transform.rotation = rot;
     }
 
 }
