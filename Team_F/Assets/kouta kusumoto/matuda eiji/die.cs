@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class dia : MonoBehaviour
+{
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 敵（タグが "Enemy"）に接触したら、この弾を消す
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);//てきを消す
+            Destroy(gameObject);　//弾を消す
+        }
+    }
+}

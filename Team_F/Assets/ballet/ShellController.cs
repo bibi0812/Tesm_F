@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShellController : MonoBehaviour
 {
-    public float deleteTime = 7.0f; // íœ‚·‚éŠÔw’è
+    public float deleteTime = 2.0f; // íœ‚·‚éŠÔw’è
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,6 @@ public class ShellController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-       // Destroy(gameObject);// ‰½‚©‚ÉÚG‚µ‚½‚çÁ‚·
+        Destroy(gameObject);// ‰½‚©‚ÉÚG‚µ‚½‚çÁ‚·
     }
 }

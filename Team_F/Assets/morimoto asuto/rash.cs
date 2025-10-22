@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 using System.Collections;
+=======
+<<<<<<< HEAD
+>>>>>>> b700d349892d5f970fd5d83b6270159e5a1a28b8
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] float dashingForce;
     [SerializeField] float dashingTime;
     [SerializeField] float dashCoolDown;
@@ -17,6 +22,13 @@ public class PlayerDash : MonoBehaviour
     Vector2 dashDirection; // �_�b�V��������ێ�
 
     Rigidbody2D rb;
+=======
+    public float dashCooldown = 3f;       // クールダウン時間
+    public float dashDistance = 3f;       // ダッシュで進む距離（3ブロック）
+
+    private bool canDash = true;
+    private Rigidbody2D rb;
+>>>>>>> b700d349892d5f970fd5d83b6270159e5a1a28b8
 
     void Start()
     {
@@ -25,6 +37,7 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         // �E�N���b�N���o
         if (Input.GetMouseButtonDown(1))
         {
@@ -82,3 +95,44 @@ public class PlayerDash : MonoBehaviour
         canDash = true;
     }
 }
+=======
+        if (Input.GetMouseButtonDown(1) && canDash) // 右クリック1回で突進
+        {
+            StartDash();
+        }
+    }
+
+    void StartDash()
+    {
+        canDash = false;
+
+        Vector2 dashDirection = GetFacingDirection();
+        Vector2 newPosition = rb.position + dashDirection.normalized * dashDistance;
+
+        // 瞬間移動で3ブロック分ダッシュ
+        rb.MovePosition(newPosition);
+
+        Invoke("ResetDash", dashCooldown);
+    }
+
+    void ResetDash()
+    {
+        canDash = true;
+    }
+
+    Vector2 GetFacingDirection()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (horizontalInput > 0)
+            return Vector2.right;
+        else if (horizontalInput < 0)
+            return Vector2.left;
+
+        // 入力がない場合、現在の速度方向（なければ右をデフォルトに）
+        return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
+    }
+}
+=======
+>>>>>>> 16dd36174709f86e8367c850245a3e4aacc82b47
+>>>>>>> b700d349892d5f970fd5d83b6270159e5a1a28b8
