@@ -1,13 +1,45 @@
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+/*
+=======
+using System.Collections;
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+<<<<<<< HEAD
+
+    [SerializeField] float dashingForce;
+    [SerializeField] float dashingTime;
+    [SerializeField] float dashCoolDown;
+    [SerializeField] float clickResetTime = 0.5f; // ƒNƒŠƒbƒNŠÔŠu§ŒÀ
+=======
+    [SerializeField] float dashDistance = 3f; // ƒ_ƒbƒVƒ…‹——£i3ƒuƒƒbƒN•ªj
+    [SerializeField] float dashDuration = 0.1f; // ƒ_ƒbƒVƒ…‚É‚©‚¯‚éŠÔi‰‰o—pj
+    [SerializeField] float dashCoolDown = 1f;
+    [SerializeField] float multiClickThreshold = 0.5f;
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+
+    bool isDashing = false;
+    bool canDash = true;
+
+    int clickCount = 0;
+    float clickTimer = 0f;
+
+    Rigidbody2D rb;
+<<<<<<< HEAD
+
     public float dashCooldown = 3f;       // ã‚¯ãƒ¼ãƒ«ãƒ€ã‚¦ãƒ³æ™‚é–“
-    public float dashDistance = 3f;       // ãƒ€ãƒƒã‚·ãƒ¥ã§é€²ã‚€è·é›¢ï¼ˆ3ãƒ–ãƒ­ãƒƒã‚¯ï¼‰
+    public float dashDistance = 3f;       // ãƒ€ãƒE‚·ãƒ¥ã§é€²ã‚€è·é›¢EEãƒ–ãƒ­ãƒE‚¯EE
 
     private bool canDash = true;
     private Rigidbody2D rb;
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
 
     void Start()
     {
@@ -16,7 +48,77 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && canDash) // å³ã‚¯ãƒªãƒƒã‚¯1å›ã§çªé€²
+<<<<<<< HEAD
+        // ‰EƒNƒŠƒbƒNŒŸo
+=======
+        if (isDashing)
+            return;
+
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+        if (Input.GetMouseButtonDown(1))
+        {
+            clickCount++;
+            clickTimer = multiClickThreshold;
+
+            if (clickCount >= 3 && canDash)
+            {
+                StartCoroutine(Dash());
+                clickCount = 0;
+                clickTimer = 0f;
+            }
+        }
+
+        if (clickCount > 0)
+        {
+            clickTimer -= Time.deltaTime;
+            if (clickTimer <= 0f)
+            {
+                clickCount = 0;
+                clickTimer = 0f;
+            }
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        canDash = false;
+
+        Vector3 mouseScreenPos = Input.mousePosition;
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        mouseWorldPos.z = 0;
+
+        // ƒ}ƒEƒX‚Ì‹t•ûŒü‚Éƒ_ƒbƒVƒ…
+        Vector2 dashDirection = (transform.position - mouseWorldPos).normalized;
+
+        Vector2 dashTarget = (Vector2)transform.position + dashDirection * dashDistance;
+
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0;
+
+        float elapsed = 0f;
+        Vector2 start = rb.position;
+
+        while (elapsed < dashDuration)
+        {
+            elapsed += Time.deltaTime;
+            rb.MovePosition(Vector2.Lerp(start, dashTarget, elapsed / dashDuration));
+            yield return null;
+        }
+
+        rb.MovePosition(dashTarget);
+        rb.gravityScale = originalGravity;
+        rb.velocity = Vector2.zero;
+
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCoolDown);
+        canDash = true;
+    }
+}
+<<<<<<< HEAD
+
+        if (Input.GetMouseButtonDown(1) && canDash) // å³ã‚¯ãƒªãƒE‚¯1å›ã§çªE€²
         {
             StartDash();
         }
@@ -29,7 +131,6 @@ public class PlayerDash : MonoBehaviour
         Vector2 dashDirection = GetFacingDirection();
         Vector2 newPosition = rb.position + dashDirection.normalized * dashDistance;
 
-        // ç¬é–“ç§»å‹•ã§3ãƒ–ãƒ­ãƒƒã‚¯åˆ†ãƒ€ãƒƒã‚·ãƒ¥
         rb.MovePosition(newPosition);
 
         Invoke("ResetDash", dashCooldown);
@@ -49,7 +150,13 @@ public class PlayerDash : MonoBehaviour
         else if (horizontalInput < 0)
             return Vector2.left;
 
-        // å…¥åŠ›ãŒãªã„å ´åˆã€ç¾åœ¨ã®é€Ÿåº¦æ–¹å‘ï¼ˆãªã‘ã‚Œã°å³ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«ï¼‰
+        
         return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
     }
 }
+<<<<<<< HEAD
+=======
+*/
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
