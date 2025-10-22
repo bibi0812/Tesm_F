@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -52,3 +53,5 @@ public class PlayerDash : MonoBehaviour
         return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
     }
 }
+=======
+>>>>>>> 16dd36174709f86e8367c850245a3e4aacc82b47
