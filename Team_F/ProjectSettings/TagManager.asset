@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-<<<<<<< HEAD
-  tags:
-  - Boll
-  - Braek
-  - Hole
-  - Enemy
-=======
   tags: []
->>>>>>> 6a946998e6da082b69d95e75676ba069c4de1ab6
   layers:
   - Default
   - TransparentFX

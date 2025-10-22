@@ -9,13 +9,6 @@ public class Goal : MonoBehaviour
         if (other.CompareTag("Boll"))
         {
             Debug.Log("ゴール！クリア！");
-
-            // ここでシーンを切り替えたりメッセージを出したりできる
-            // 例：次のシーンへ
-            // SceneManager.LoadScene("NextStage");
-
-            // 例：シンプルに停止する場合
-            Time.timeScale = 5;
         }
     }
 }
