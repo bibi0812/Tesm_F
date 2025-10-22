@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3e4097c29f31d767d28744a68b1abf362df0d8b8
 
 /*<<<<<<< HEAD
 =======
@@ -19,154 +25,93 @@
 using System.Collections;
 >>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
 >>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> a47ded5e5de7baa181b5a5fc648ba0103be991b9
 using UnityEngine;
 
-public class PlayerDash : MonoBehaviour
+public class DashOnRightClick : MonoBehaviour
 {
-<<<<<<< HEAD
+    public float dashDistance = 3f;   // 突進距離（3ブロック分）
+    public float maxClickInterval = 0.5f; // 連続クリックの最大間隔（秒）
 
-    [SerializeField] float dashingForce;
-    [SerializeField] float dashingTime;
-    [SerializeField] float dashCoolDown;
-    [SerializeField] float clickResetTime = 0.5f; // クリック間隔制限
-=======
-    [SerializeField] float dashDistance = 3f; // ダッシュ距離（3ブロック分）
-    [SerializeField] float dashDuration = 0.1f; // ダッシュにかける時間（演出用）
-    [SerializeField] float dashCoolDown = 1f;
-    [SerializeField] float multiClickThreshold = 0.5f;
->>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+    private int rightClickCount = 0;
+    private float lastClickTime = 0f;
 
-    bool isDashing = false;
-    bool canDash = true;
-
-    int clickCount = 0;
-    float clickTimer = 0f;
-
-    Rigidbody2D rb;
-<<<<<<< HEAD
-
-    public float dashCooldown = 3f;       // 繧ｯ繝ｼ繝ｫ繝繧ｦ繝ｳ譎る俣
-    public float dashDistance = 3f;       // 繝繝・す繝･縺ｧ騾ｲ繧霍晞屬・・繝悶Ο繝・け・・
-
-    private bool canDash = true;
-    private Rigidbody2D rb;
-=======
->>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private bool isDashing = false;
+    private Vector3 dashTarget;
+    private float dashSpeed = 10f;
 
     void Update()
     {
-<<<<<<< HEAD
-        // 右クリック検出
-=======
         if (isDashing)
+        {
+            DashMove();
             return;
+        }
 
->>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)) // 右クリック押されたら
         {
-            clickCount++;
-            clickTimer = multiClickThreshold;
+            float timeSinceLastClick = Time.time - lastClickTime;
 
-            if (clickCount >= 3 && canDash)
+            if (timeSinceLastClick <= maxClickInterval)
             {
-                StartCoroutine(Dash());
-                clickCount = 0;
-                clickTimer = 0f;
+                rightClickCount++;
             }
-        }
-
-        if (clickCount > 0)
-        {
-            clickTimer -= Time.deltaTime;
-            if (clickTimer <= 0f)
+            else
             {
-                clickCount = 0;
-                clickTimer = 0f;
+                rightClickCount = 1;
             }
-        }
-    }
 
-    private IEnumerator Dash()
-    {
-        isDashing = true;
-        canDash = false;
+            lastClickTime = Time.time;
 
-        Vector3 mouseScreenPos = Input.mousePosition;
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-        mouseWorldPos.z = 0;
-
-        // マウスの逆方向にダッシュ
-        Vector2 dashDirection = (transform.position - mouseWorldPos).normalized;
-
-        Vector2 dashTarget = (Vector2)transform.position + dashDirection * dashDistance;
-
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0;
-
-        float elapsed = 0f;
-        Vector2 start = rb.position;
-
-        while (elapsed < dashDuration)
-        {
-            elapsed += Time.deltaTime;
-            rb.MovePosition(Vector2.Lerp(start, dashTarget, elapsed / dashDuration));
-            yield return null;
-        }
-
-        rb.MovePosition(dashTarget);
-        rb.gravityScale = originalGravity;
-        rb.velocity = Vector2.zero;
-
-        isDashing = false;
-
-        yield return new WaitForSeconds(dashCoolDown);
-        canDash = true;
-    }
-}
-<<<<<<< HEAD
-
-        if (Input.GetMouseButtonDown(1) && canDash) // 蜿ｳ繧ｯ繝ｪ繝・け1蝗槭〒遯・ｲ
-        {
-            StartDash();
+            if (rightClickCount >= 3)
+            {
+                rightClickCount = 0;
+                StartDash();
+            }
         }
     }
 
     void StartDash()
     {
-        canDash = false;
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = transform.position.z;
 
-        Vector2 dashDirection = GetFacingDirection();
-        Vector2 newPosition = rb.position + dashDirection.normalized * dashDistance;
+        Vector3 directionToMouse = (mouseWorldPos - transform.position).normalized;
 
-        rb.MovePosition(newPosition);
+        // マウス方向の逆方向に突進距離分移動するターゲット位置を計算
+        dashTarget = transform.position - directionToMouse * dashDistance;
 
-        Invoke("ResetDash", dashCooldown);
+        isDashing = true;
     }
 
-    void ResetDash()
+    void DashMove()
     {
-        canDash = true;
-    }
+        // 現在位置からターゲットに向かって突進
+        transform.position = Vector3.MoveTowards(transform.position, dashTarget, dashSpeed * Time.deltaTime);
 
-    Vector2 GetFacingDirection()
-    {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        if (horizontalInput > 0)
-            return Vector2.right;
-        else if (horizontalInput < 0)
-            return Vector2.left;
-
-        
-        return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
+        if (Vector3.Distance(transform.position, dashTarget) < 0.01f)
+        {
+            isDashing = false;
+        }
     }
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 */
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
+>>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
+>>>>>>> dacd970a26d343fcb975aaf5b9e29f8f799c345b
+>>>>>>> a47ded5e5de7baa181b5a5fc648ba0103be991b9
+>>>>>>> 3e4097c29f31d767d28744a68b1abf362df0d8b8
