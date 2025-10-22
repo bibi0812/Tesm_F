@@ -49,6 +49,6 @@ public class PlayerDash : MonoBehaviour
             return Vector2.left;
 
         // 入力がない場合、現在の速度方向（なければ右をデフォルトに）
-        return rb.velocity.sqrMagnitude > 0.1f ? rb.velocity.normalized : Vector2.right;
+        return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
     }
 }
