@@ -1,7 +1,15 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
 /*
 =======
 using System.Collections;
 >>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -149,5 +157,13 @@ public class PlayerDash : MonoBehaviour
         return rb.linearVelocity.sqrMagnitude > 0.1f ? rb.linearVelocity.normalized : Vector2.right;
     }
 }
+<<<<<<< HEAD
+=======
 */
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+>>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
+>>>>>>> c3a5909344fc736736c4d085e711e011cc979074
