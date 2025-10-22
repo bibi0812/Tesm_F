@@ -7,7 +7,7 @@ public class Brake : MonoBehaviour // クラス名を分かりやすく変更推奨
     void OnCollisionEnter2D(Collision2D collision)
     {
         // 衝突相手が「Ball」タグを持っているかチェック（スペルミスを修正）
-        if (collision.gameObject.CompareTag("Dead"))
+        if (collision.gameObject.CompareTag("Boll"))
         {
             // 2. このブロックのゲームオブジェクトを破壊（削除）する
             Destroy(gameObject);

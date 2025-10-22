@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class ShellController : MonoBehaviour
 {
-    public float deleteTime = 2.0f; // 削除する時間指定
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, deleteTime); //削除設定
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);// 何かに接触したら消す
+        if (collision.CompareTag("Block") || collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject); // 「bleck」または「Enemy」タグを持つオブジェクトに当たったら弾を消す
+        }
+        if (collision.CompareTag("Enemy")||collision.CompareTag("Braek"))
+        {
+            // 敵オブジェクトを削除
+            Destroy(collision.gameObject);
+
+            // 弾を削除
+            Destroy(gameObject);
+        }
     }
 }
