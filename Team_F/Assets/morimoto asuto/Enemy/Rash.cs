@@ -1,31 +1,10 @@
-<<<<<<< HEAD
-
-/*<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-/*<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dacd970a26d343fcb975aaf5b9e29f8f799c345b
-=======
-<<<<<<< HEAD
->>>>>>> ef3b806d3bf78756770d6697cee143eedf66aae2
-
-=======
-<<<<<<< HEAD
->>>>>>> c3a5909344fc736736c4d085e711e011cc979074
-/*
-=======
-using System.Collections;
->>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
->>>>>>> 352b614a2a055fd4f9dd4b41b2b2b8ab01e57436
->>>>>>> a47ded5e5de7baa181b5a5fc648ba0103be991b9
 using UnityEngine;
 
-public class DashOnRightClick : MonoBehaviour
+public class Rash : MonoBehaviour
 {
-    public float dashDistance = 3f;   // 突進距離（3ブロック分）
-    public float maxClickInterval = 0.5f; // 連続クリックの最大間隔（秒）
+    public float dashDistance = 10f;         // 突進距離
+    public float maxClickInterval = 1f;      // 連続クリックの最大間隔（秒）
+    public float dashCooldown = 3f;          // クールタイム（秒）
 
     private int rightClickCount = 0;
     private float lastClickTime = 0f;
@@ -33,6 +12,8 @@ public class DashOnRightClick : MonoBehaviour
     private bool isDashing = false;
     private Vector3 dashTarget;
     private float dashSpeed = 10f;
+
+    private float lastDashTime = -Mathf.Infinity; // 最後にダッシュした時間（初期化：無限に前）
 
     void Update()
     {
@@ -42,7 +23,7 @@ public class DashOnRightClick : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(1)) // 右クリック押されたら
+        if (Input.GetMouseButtonDown(1)) // 右クリック
         {
             float timeSinceLastClick = Time.time - lastClickTime;
 
@@ -57,7 +38,8 @@ public class DashOnRightClick : MonoBehaviour
 
             lastClickTime = Time.time;
 
-            if (rightClickCount >= 3)
+            // クールタイムが経過しているかチェック
+            if (rightClickCount >= 1 && Time.time - lastDashTime >= dashCooldown)
             {
                 rightClickCount = 0;
                 StartDash();
@@ -72,15 +54,14 @@ public class DashOnRightClick : MonoBehaviour
 
         Vector3 directionToMouse = (mouseWorldPos - transform.position).normalized;
 
-        // マウス方向の逆方向に突進距離分移動するターゲット位置を計算
         dashTarget = transform.position - directionToMouse * dashDistance;
 
         isDashing = true;
+        lastDashTime = Time.time; // ダッシュ開始時間を記録
     }
 
     void DashMove()
     {
-        // 現在位置からターゲットに向かって突進
         transform.position = Vector3.MoveTowards(transform.position, dashTarget, dashSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, dashTarget) < 0.01f)
@@ -89,11 +70,3 @@ public class DashOnRightClick : MonoBehaviour
         }
     }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-*/
-
-=======
->>>>>>> a68ebfb733d4bf2fb05047bfe3b579f38edfcbf4
