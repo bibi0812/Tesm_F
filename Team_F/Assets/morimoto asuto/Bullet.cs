@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour
         // 敵（タグが "Enemy"）に接触したら、この弾を消す
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            Destroy(collision.gameObject);//てきを消す
+            Destroy(gameObject);　//弾を消す
         }
     }
 }
