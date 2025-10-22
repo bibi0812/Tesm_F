@@ -4,22 +4,19 @@
 TagManager:
   serializedVersion: 3
   tags:
-<<<<<<< HEAD
-  - Dead
-=======
-  - Braek
   - Boll
+  - Braek
   - Hole
->>>>>>> e456359c0877ed8c4a7fe84b2a2d96fbe659ae73
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Shell
-  - Dead
+  - 
+  - 
   - 
   - 
   - 
