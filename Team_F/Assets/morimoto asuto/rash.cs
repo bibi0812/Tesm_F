@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 =======
 using System.Collections;
@@ -151,5 +150,4 @@ public class PlayerDash : MonoBehaviour
     }
 }
 */
-=======
->>>>>>> 9d4c18309d89640ff5633249bdc16e383bd89500
+
