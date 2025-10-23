@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Boll
+  - Hole
+  - Braek
+  - Dead
+  - Enemy
+  - Block
+  - Gole
   layers:
   - Default
   - TransparentFX
