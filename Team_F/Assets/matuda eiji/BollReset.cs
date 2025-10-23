@@ -32,7 +32,7 @@ public class BollReset : MonoBehaviour
 
             if (other.CompareTag("Hole"))
             {
-                Debug.Log("落とし穴に落ちました（リスタート）");
+                Debug.Log("障害物に当たりました（リスタート）");
             }
             else if (other.CompareTag("Enemy"))
             {
