@@ -1,19 +1,19 @@
 ﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 /// <summary>
 /// マウスクリックに応じてオブジェクト（弾）を発射する砲台のコントローラー
 /// </summary>
 public class CannonController : MonoBehaviour
 {
-
+ 
     public GameObject objPrefab; // 発射するオブジェクト（弾）のプレハブ
-
+ 
     public float fireSpeed = 20.0f;  // 弾の発射速度
-
+ 
     private Transform gateTransform; // 発射口（gate）のTransform
-
+ 
     void Start()
     {
         // このオブジェクトの子から "gate" という名前のオブジェクトを探す
@@ -22,14 +22,14 @@ public class CannonController : MonoBehaviour
         {
             Debug.LogError("gateオブジェクトが見つかりません。ヒエラルキー内に 'gate' という名前の子オブジェクトがありますか？");
         }
-
+ 
         // プレハブが設定されていない場合に警告を出す
         if (objPrefab == null)
         {
             Debug.LogError("objPrefab が設定されていません。インスペクタでプレハブを割り当ててください。");
         }
     }
-
+ 
     void Update()
     {
         // マウスの左クリックが押されたときに弾を発射
@@ -38,7 +38,7 @@ public class CannonController : MonoBehaviour
             Shoot();
         }
     }
-
+ 
     /// <summary>
     /// 弾を生成して発射する処理
     /// </summary>
@@ -46,35 +46,35 @@ public class CannonController : MonoBehaviour
     {
         // プレハブや発射口が設定されていなければ処理を中断
         if (objPrefab == null || gateTransform == null) return;
-
+ 
         // メインカメラの存在チェック
         if (Camera.main == null)
         {
             Debug.LogError("Main Camera が見つかりません。");
             return;
         }
-
+ 
         // マウスのスクリーン座標をワールド座標に変換
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f; // 2DなのでZ軸は0に固定
-
+ 
         // 発射位置とマウス位置を2Dベクトルで取得
         Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
         Vector2 firePosition = new Vector2(gateTransform.position.x, gateTransform.position.y);
-
+ 
         // 発射方向を計算し正規化（長さ1にする）
         Vector2 direction = (mousePos2D - firePosition).normalized;
-
+ 
         // 発射方向の角度を計算（ラジアンから度に変換）
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rot = Quaternion.Euler(0, 0, angle); // 回転情報を作成
-
+ 
         // 弾を生成（位置と回転を指定）
         GameObject obj = Instantiate(objPrefab, firePosition, rot);
-
+ 
         // 弾の寿命を3秒に設定。3秒後に自動で破棄される
         Destroy(obj, 2f);
-
+ 
         // Rigidbody2Dコンポーネントを取得して力を加える
         Rigidbody2D rbody = obj.GetComponent<Rigidbody2D>();
         if (rbody != null)
@@ -86,11 +86,11 @@ public class CannonController : MonoBehaviour
         {
             Debug.LogWarning("生成された弾に Rigidbody2D がアタッチされていません。プレハブを確認してください。");
         }
-
+ 
         // もし砲台を弾の発射方向に回転させたい場合は以下のコメントを外してください
         // transform.rotation = rot;
     }
-
+ 
 }*/
 using System.Collections;
 using System.Collections.Generic;
