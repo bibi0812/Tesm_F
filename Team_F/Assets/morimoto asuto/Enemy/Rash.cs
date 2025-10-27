@@ -1,72 +1,59 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Rash : MonoBehaviour
 {
-    public float dashDistance = 10f;         // “Ëi‹——£
-    public float maxClickInterval = 1f;      // ˜A‘±ƒNƒŠƒbƒN‚ÌÅ‘åŠÔŠui•bj
-    public float dashCooldown = 3f;          // ƒN[ƒ‹ƒ^ƒCƒ€i•bj
+    [Header("Dash Settings")]
+    public float dashPower = 10f;         // æ¨ªæ–¹å‘ã®å›ºå®šã‚¹ãƒ”ãƒ¼ãƒ‰
+    public float dashLift = 5f;           // ä¸Šæ–¹å‘ã®è·³ã­ä¸ŠãŒã‚Š
+    public float dashCooldown = 3f;       // ã‚¯ãƒ¼ãƒ«ã‚¿ã‚¤ãƒ 
+    public float gravityScale = 1f;       // é€šå¸¸ã®é‡åŠ›
+    public float dashSpeed = 1.5f;        // å…¨ä½“å€ç‡ï¼ˆ0.5ï½2.0ï¼‰
 
-    private int rightClickCount = 0;
-    private float lastClickTime = 0f;
-
+    private Rigidbody2D rb;
     private bool isDashing = false;
-    private Vector3 dashTarget;
-    private float dashSpeed = 10f;
+    private float lastDashTime = -Mathf.Infinity;
 
-    private float lastDashTime = -Mathf.Infinity; // ÅŒã‚Éƒ_ƒbƒVƒ…‚µ‚½ŠÔi‰Šú‰»F–³ŒÀ‚É‘Oj
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
+        rb.gravityScale = gravityScale;
+    }
 
     void Update()
     {
-        if (isDashing)
-        {
-            DashMove();
+        if (isDashing || Time.time - lastDashTime < dashCooldown)
             return;
-        }
 
-        if (Input.GetMouseButtonDown(1)) // ‰EƒNƒŠƒbƒN
-        {
-            float timeSinceLastClick = Time.time - lastClickTime;
-
-            if (timeSinceLastClick <= maxClickInterval)
-            {
-                rightClickCount++;
-            }
-            else
-            {
-                rightClickCount = 1;
-            }
-
-            lastClickTime = Time.time;
-
-            // ƒN[ƒ‹ƒ^ƒCƒ€‚ªŒo‰ß‚µ‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
-            if (rightClickCount >= 1 && Time.time - lastDashTime >= dashCooldown)
-            {
-                rightClickCount = 0;
-                StartDash();
-            }
-        }
+        if (Input.GetMouseButtonDown(1))
+            StartDash();
     }
 
     void StartDash()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = transform.position.z;
+        mouseWorldPos.z = 0f;
 
-        Vector3 directionToMouse = (mouseWorldPos - transform.position).normalized;
+        Vector2 dirToMouse = ((Vector2)mouseWorldPos - (Vector2)transform.position).normalized;
+        Vector2 reverseDir = -dirToMouse;
 
-        dashTarget = transform.position - directionToMouse * dashDistance;
+        rb.linearVelocity = Vector2.zero;
+
+        // æ¨ªé€Ÿåº¦ã‚’å›ºå®šã«ã—ã¦æ‰“ã¡ä¸Šã’
+        Vector2 launchVelocity = reverseDir * dashPower * dashSpeed + Vector2.up * dashLift;
+
+        rb.linearVelocity = launchVelocity;
 
         isDashing = true;
-        lastDashTime = Time.time; // ƒ_ƒbƒVƒ…ŠJnŠÔ‚ğ‹L˜^
+        lastDashTime = Time.time;
+
+        // ãƒ€ãƒƒã‚·ãƒ¥æ™‚é–“ã¯å›ºå®š
+        Invoke(nameof(EndDash), 0.3f / dashSpeed);
     }
 
-    void DashMove()
+    void EndDash()
     {
-        transform.position = Vector3.MoveTowards(transform.position, dashTarget, dashSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, dashTarget) < 0.01f)
-        {
-            isDashing = false;
-        }
+        isDashing = false;
     }
 }
