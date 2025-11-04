@@ -1,14 +1,21 @@
 using UnityEngine;
-//using UnityEngine.SceneManagement; // シーン切り替えに使う場合
 
-public class Goal : MonoBehaviour
+public class GoalChecker : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public GameObject clearText; // CLEAR! のUIをInspectorにセット
+
+    private void Start()
     {
-        // ボールにタグ "Ball" がついていたらクリア
-        if (other.CompareTag("Player"))
+        // 念のため最初に非表示にしておく
+        clearText.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Gole"))
         {
-            Debug.Log("ゴール！クリア！");
+            clearText.SetActive(true);
+            Time.timeScale = 0f; // ゲームを止める（任意）
         }
     }
 }
