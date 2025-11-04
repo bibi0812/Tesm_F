@@ -241,7 +241,7 @@ using UnityEngine.UI; // UIを使うために追加（ただし、今回は未�
 public class CannonController : MonoBehaviour
 {
     public GameObject objPrefab; // 発射するオブジェクト（弾）のプレハブ
-    public float fireSpeed = 20.0f;  // 弾の発射速度
+    public float fireSpeed = 2.0f;  // 弾の発射速度
     public float recoilForce = 10.0f; // 砲台に加わる反動の強さ
 
     // 🔥 クールタイム関連の変数
