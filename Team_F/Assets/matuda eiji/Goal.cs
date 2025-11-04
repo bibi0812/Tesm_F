@@ -12,7 +12,7 @@ public class GoalChecker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Gole"))
+        if (collision.CompareTag("Goal"))
         {
             clearText.SetActive(true);
             Time.timeScale = 0f; // ƒQ[ƒ€‚ğ~‚ß‚éi”CˆÓj

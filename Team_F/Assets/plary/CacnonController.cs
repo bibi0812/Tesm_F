@@ -1,4 +1,4 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 
 using System.Collections.Generic;
 
@@ -78,7 +78,7 @@ public class CannonController : MonoBehaviour
 
         }
 
-        
+
 
     }
 
@@ -217,6 +217,7 @@ public class CannonController : MonoBehaviour
         // transform.rotation = rot;
 
     }
+}
 
     /// <summary>
 
@@ -226,10 +227,9 @@ public class CannonController : MonoBehaviour
 
   
 
-}*/
 
 
-
+    /*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -241,11 +241,11 @@ using UnityEngine.UI; // UIを使うために追加（ただし、今回は未�
 public class CannonController : MonoBehaviour
 {
     public GameObject objPrefab; // 発射するオブジェクト（弾）のプレハブ
-    public float fireSpeed = 20.0f;  // 弾の発射速度
+    public float fireSpeed = 2.0f;  // 弾の発射速度
     public float recoilForce = 10.0f; // 砲台に加わる反動の強さ
 
     // 🔥 クールタイム関連の変数
-    public float fireInterval = 3.0f; // 🚀 発射クールタイムを 3.0秒 に変更
+    public float fireInterval = 1.0f; // 🚀 発射クールタイムを 3.0秒 に変更
     private float nextFireTime = 0.0f; // 次に発射可能になる時刻 (Time.time)
     private Transform gateTransform; // 発射口（gate）のTransform
     private Rigidbody2D cannonRbody; // 砲台自身のRigidbody2D
@@ -352,4 +352,4 @@ public class CannonController : MonoBehaviour
         }
         // -------------------------------------------------------------
     }
-}
+}*/
