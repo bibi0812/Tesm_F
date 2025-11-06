@@ -29,15 +29,14 @@ public class BollReset : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
             }
-
-            // 🔹 ブロックをリセット
-            BlockManager manager = FindObjectOfType<BlockManager>();
-            if (manager != null)
-            {
-                manager.ResetAllBlocks();
-            }
-
-            Debug.Log("リスタートしました。ブロックを元に戻しました。");
         }
+        // 🔹 ブロックをリセット
+        BlockManager manager = FindObjectOfType<BlockManager>();
+        if (manager != null)
+        {
+            manager.ResetAllBlocks();
+        }
+
+        Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }
