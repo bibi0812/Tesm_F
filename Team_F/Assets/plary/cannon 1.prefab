@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 6046257037024969416}
   m_Layer: 3
   m_Name: cannon 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   objPrefab: {fileID: 0}
   fireSpeed: 4
   recoilForce: 10
+  remainingShotsText: {fileID: 0}
 --- !u!114 &6046257037024969416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,3 +350,4 @@ MonoBehaviour:
   objPrefab: {fileID: 8265315218960759705, guid: bb73e3cfdf63ac54591fa6f1fe067571, type: 3}
   fireSpeed: 10
   recoilForce: 10
+  remainingShotsText: {fileID: 0}
