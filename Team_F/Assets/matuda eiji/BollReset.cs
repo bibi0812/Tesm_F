@@ -30,13 +30,13 @@ public class BollReset : MonoBehaviour
                 rb.angularVelocity = 0f;
             }
         }
-        // 🔹 ブロックをリセット
-        BlockManager manager = FindObjectOfType<BlockManager>();
-        if (manager != null)
-        {
-            manager.ResetAllBlocks();
-        }
+        //// 🔹 ブロックをリセット
+        //BlockManager manager = FindObjectOfType<BlockManager>();
+        //if (manager != null)
+        //{
+        //    manager.ResetAllBlocks();
+        //}
 
-        Debug.Log("リスタートしました。ブロックを元に戻しました。");
+        //Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }

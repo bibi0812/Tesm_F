@@ -6,7 +6,7 @@ public class ShellController : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( collision.CompareTag("Enemy")|| collision.CompareTag("Braek") || collision.CompareTag("Block"))
+        if ( collision.CompareTag("Enemy")|| collision.CompareTag("Braek") || collision.CompareTag("Block") || collision.CompareTag("Hole"))
         {
             Destroy(gameObject); // 「bleck」または「Enemy」タグを持つオブジェクトに当たったら弾を消す
         }
@@ -18,5 +18,13 @@ public class ShellController : MonoBehaviour
             // 弾を削除
             Destroy(gameObject);
         }
+        // ?? ブロックをリセット
+        BlockManager manager = FindObjectOfType<BlockManager>();
+        if (manager != null)
+        {
+            manager.ResetAllBlocks();
+        }
+
+        Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }
