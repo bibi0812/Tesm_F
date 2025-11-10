@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Brake : MonoBehaviour // クラス名を分かりやすく変更推奨
-{   
-
-    // 2D物理衝突が発生したときに呼ばれる（クラスの直接のメンバーとして定義）
-    void OnCollisionEnter2D(Collision2D collision)
+public class BreakBlock : MonoBehaviour
+{
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< HEAD
         // 衝突相手が「Ball」タグを持っているかチェック（スペルミスを修正）
+=======
+        // ボール（または弾など）に当たったら非表示にする
+>>>>>>> 49b93ae4b242368dd87aee5da42aa5d3afe573b9
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 2. このブロックのゲームオブジェクトを破壊（削除）する
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

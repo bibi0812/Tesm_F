@@ -17,7 +17,7 @@ public class BollReset : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hole") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Hole")|| other.CompareTag("Enemy"))
         {
             // 位置を初期位置に戻す
             transform.position = initialPosition;
@@ -29,16 +29,14 @@ public class BollReset : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f;
             }
-
-            if (other.CompareTag("Hole"))
-            {
-                Debug.Log("障害物に当たりました（リスタート）");
-            }
-            else if (other.CompareTag("Enemy"))
-            {
-                // ★ モンスターを消さない場合はこのまま。消したい場合は Destroy(other.gameObject); を追加。
-                Debug.Log("あなたは死にました（リスタート）");
-            }
         }
+        // 🔹 ブロックをリセット
+        BlockManager manager = FindObjectOfType<BlockManager>();
+        if (manager != null)
+        {
+            manager.ResetAllBlocks();
+        }
+
+        Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }

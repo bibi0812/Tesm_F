@@ -1,59 +1,76 @@
-﻿using UnityEngine;
+﻿//using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Rash : MonoBehaviour
-{
-    [Header("Dash Settings")]
-    public float dashPower = 10f;         // 横方向の固定スピード
-    public float dashLift = 5f;           // 上方向の跳ね上がり
-    public float dashCooldown = 3f;       // クールタイム
-    public float gravityScale = 1f;       // 通常の重力
-    public float dashSpeed = 1.5f;        // 全体倍率（0.5～2.0）
+//[RequireComponent(typeof(Rigidbody2D))]
+//public class Rash : MonoBehaviour
+//{
+//    [Header("Dash Settings")]
+//    public float dashPower = 10f;         // 横方向の固定スピード
+//    public float dashLift = 5f;           // 上方向の跳ね上がり
+//    public float dashCooldown = 0.5f;       // クールタイム
+//    public float gravityScale = 1f;       // 通常の重力
+//    public float dashSpeed = 1.5f;        // 全体倍率（0.5～2.0）
 
-    private Rigidbody2D rb;
-    private bool isDashing = false;
-    private float lastDashTime = -Mathf.Infinity;
+//    private Rigidbody2D rb;
+//    private bool isDashing = false;
+//    private float lastDashTime = -Mathf.Infinity;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;
-        rb.gravityScale = gravityScale;
-    }
+//    void Start()
+//    {
+//        rb = GetComponent<Rigidbody2D>();
+//        rb.freezeRotation = true;
+//        rb.gravityScale = gravityScale;
 
-    void Update()
-    {
-        if (isDashing || Time.time - lastDashTime < dashCooldown)
-            return;
+//        void RashD(Collider2D collision)
+//    {
+//        if (collision.CompareTag("Block") || collision.CompareTag("Enemy"))
+//        {
+//            Destroy(gameObject); // 「bleck」または「Enemy」タグを持つオブジェクトに当たったら弾を消す
+//        }
+//        if (collision.CompareTag("Enemy"))
+//        {
+//            // 敵オブジェクトを削除
+//            Destroy(collision.gameObject);
 
-        if (Input.GetMouseButtonDown(1))
-            StartDash();
-    }
+//            // 弾を削除
+//            Destroy(gameObject);
+//        }
+//    }
+//    }
 
-    void StartDash()
-    {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPos.z = 0f;
+//    void Update()
+//    {
+//        if (isDashing || Time.time - lastDashTime < dashCooldown)
+//            return;
 
-        Vector2 dirToMouse = ((Vector2)mouseWorldPos - (Vector2)transform.position).normalized;
-        Vector2 reverseDir = -dirToMouse;
+//        if (Input.GetMouseButtonDown(1))
+//            StartDash();
+//    }
 
-        rb.linearVelocity = Vector2.zero;
+//    void StartDash()
+//    {
+//        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//        mouseWorldPos.z = 0f;
 
-        // 横速度を固定にして打ち上げ
-        Vector2 launchVelocity = reverseDir * dashPower * dashSpeed + Vector2.up * dashLift;
+//        Vector2 dirToMouse = ((Vector2)mouseWorldPos - (Vector2)transform.position).normalized;
+//        Vector2 reverseDir = -dirToMouse;
 
-        rb.linearVelocity = launchVelocity;
+//        rb.linearVelocity = Vector2.zero;
 
-        isDashing = true;
-        lastDashTime = Time.time;
+//        // 横速度を固定にして打ち上げ
+//        Vector2 launchVelocity = reverseDir * dashPower * dashSpeed + Vector2.up * dashLift;
 
-        // ダッシュ時間は固定
-        Invoke(nameof(EndDash), 0.3f / dashSpeed);
-    }
+//        rb.linearVelocity = launchVelocity;
 
-    void EndDash()
-    {
-        isDashing = false;
-    }
-}
+//        isDashing = true;
+//        lastDashTime = Time.time;
+
+//        // ダッシュ時間は固定
+//        Invoke(nameof(EndDash), 0.3f / dashSpeed);
+//    }
+
+//    void EndDash()
+//    {
+//        isDashing = false;
+//    }
+    
+//}
