@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class Enemyidou : MonoBehaviour
 {
     public float moveSpeed = 2f;        // ˆÚ“®‘¬“x
     public float moveDistance = 3f;     // ˆÚ“®‚·‚é‹——£
@@ -43,4 +43,5 @@ public class EnemyPatrol : MonoBehaviour
         scale.x *= -1; // ¶‰E”½“]
         transform.localScale = scale;
     }
+
 }
