@@ -15,7 +15,7 @@ public class GoalChecker : MonoBehaviour
         if (collision.CompareTag("Goal"))
         {
             clearText.SetActive(true);
-            Time.timeScale = 0f; // ƒQ[ƒ€‚ğ~‚ß‚éi”CˆÓj
+           // Time.timeScale = 0f; // ƒQ[ƒ€‚ğ~‚ß‚éi”CˆÓj
         }
     }
 }

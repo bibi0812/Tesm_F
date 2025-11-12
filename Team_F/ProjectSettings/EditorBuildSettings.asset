@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Stage/Title.unity
+    guid: 9b39dd8ce421e7c498b5d6b21eb04944
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Stage/Stage2.unity
+    guid: 1ff06747f2b370844a97e8b21774a3c7
+  - enabled: 1
+    path: Assets/matuda eiji/Test_matuda.unity
+    guid: 1aa25a5c26efb7848a1f00d2d8cab935
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
