@@ -12,6 +12,7 @@ TagManager:
   - Block
   - Gole
   - Goal
+  - Switch
   layers:
   - Default
   - TransparentFX
