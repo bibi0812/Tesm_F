@@ -136,3 +136,112 @@ public class MovingBlock : MonoBehaviour
         Gizmos.DrawWireCube(toPos, size);
     }
 }
+
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class MovingBlock : MonoBehaviour
+//{
+//    public float moveY = 0f;  // 移動量Y
+//    public float moveX = 0f;  // 移動量X
+//    public float times = 1f;  // 移動にかかる時間
+//    public float wait = 0f;   // 折り返しで待つ時間
+
+//    public bool isMoveWhenOn = false; // 乗った時だけ動くか
+//    public bool isCanMove = true;     // 動作フラグ
+
+//    Vector3 startPos;
+//    Vector3 endPos;
+//    bool isReverse = false;
+//    float movep = 0f;
+
+//    void Start()
+//    {
+//        startPos = transform.position;
+//        endPos = new Vector2(startPos.x + moveX, startPos.y + moveY);
+
+//        if (isMoveWhenOn)
+//            isCanMove = false;  // 乗るまで動かない
+//    }
+
+//    void Update()
+//    {
+//        // ★重要：止まっている時は一切動かない
+//        if (!isCanMove)
+//            return;
+
+//        float distance = Vector2.Distance(startPos, endPos);
+//        float ds = distance / times;
+//        float df = ds * Time.deltaTime / distance;
+
+//        // Lerp 補間値更新
+//        movep += df;
+
+//        if (isReverse)
+//            transform.position = Vector2.Lerp(endPos, startPos, movep);
+//        else
+//            transform.position = Vector2.Lerp(startPos, endPos, movep);
+
+//        // 端まで来たら折り返し
+//        if (movep >= 1.0f)
+//        {
+//            movep = 0f;
+//            isReverse = !isReverse;
+//            isCanMove = false;
+
+//            if (!isMoveWhenOn)
+//                Invoke("Move", wait); // wait後に動き開始
+//        }
+//    }
+
+//    // === 外部から呼び出す ===
+//    public void Move()
+//    {
+//        movep = 0f;       // 補間値リセット（完全停止しやすく）
+//        isCanMove = true; // 動作ON
+//    }
+
+//    public void Stop()
+//    {
+//        isCanMove = false; // 動作OFF
+//    }
+
+//    // プレイヤーを乗せたら床に追従
+//    void OnCollisionEnter2D(Collision2D collision)
+//    {
+//        if (collision.gameObject.CompareTag("Player"))
+//        {
+//            collision.transform.SetParent(transform);
+
+//            if (isMoveWhenOn)
+//                Move();
+//        }
+//    }
+
+//    void OnCollisionExit2D(Collision2D collision)
+//    {
+//        if (collision.gameObject.CompareTag("Player"))
+//        {
+//            collision.transform.SetParent(null);
+//        }
+//    }
+
+//    // Gizmo 表示（任意）
+//    void OnDrawGizmosSelected()
+//    {
+//        Vector2 fromPos = startPos == Vector3.zero ? (Vector2)transform.position : (Vector2)startPos;
+//        Vector2 toPos = new Vector2(fromPos.x + moveX, fromPos.y + moveY);
+
+//        Gizmos.color = Color.yellow;
+//        Gizmos.DrawLine(fromPos, toPos);
+
+//        Vector2 size = GetComponent<SpriteRenderer>()?.size ?? Vector2.one;
+
+//        Gizmos.color = Color.green;
+//        Gizmos.DrawWireCube(fromPos, size);
+
+//        Gizmos.color = Color.red;
+//        Gizmos.DrawWireCube(toPos, size);
+//    }
+//}

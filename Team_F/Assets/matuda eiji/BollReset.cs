@@ -21,22 +21,6 @@ public class BollReset : MonoBehaviour
         {
             // 位置を初期位置に戻す
             transform.position = initialPosition;
-
-            // Rigidbody2Dの速度と角速度をリセット（重要！）
-            if (rb != null)
-            {
-                // ★ ここを 'velocity' に修正しました ★
-                rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-            }
         }
-        //// 🔹 ブロックをリセット
-        //BlockManager manager = FindObjectOfType<BlockManager>();
-        //if (manager != null)
-        //{
-        //    manager.ResetAllBlocks();
-        //}
-
-        //Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }
