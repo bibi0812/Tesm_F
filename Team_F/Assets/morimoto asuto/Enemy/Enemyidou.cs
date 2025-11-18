@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemyidou : MonoBehaviour
 {
     public float moveSpeed = 2f;        // ˆÚ“®‘¬“x
-    public float moveDistance = 3f;     // ˆÚ“®‚·‚é‹——£
+    public float moveDistance = 6f;     // ˆÚ“®‚·‚é‹——£
 
     private Vector2 startPos;           // ‰ŠúˆÊ’u
     private bool movingRight = false;    // ‰E‚ÖˆÚ“®’†‚©‚Ç‚¤‚©
