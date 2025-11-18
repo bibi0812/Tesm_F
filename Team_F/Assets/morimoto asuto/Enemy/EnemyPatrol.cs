@@ -19,9 +19,11 @@ public class EnemyPatrol : MonoBehaviour
     public float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
 
+  
     [Header("攻撃エフェクト")]
     public GameObject fireBreathPrefab;
-    public float fireOffset = 1f;
+    public Transform firePoint;     // ← 追加（口の位置）
+    public float fireSpeed = 6f;
 
     private Rigidbody2D rb;
     private Vector2 startPos;
@@ -138,27 +140,24 @@ public class EnemyPatrol : MonoBehaviour
     {
         Debug.Log("敵が攻撃した!");
 
+        if (player == null || firePoint == null) return;
+
         // プレイヤー方向
-        Vector2 direction = (player.position - transform.position).normalized;
+        Vector2 direction = (player.position - firePoint.position).normalized;
 
-        // 火の出る位置
-        Vector3 spawnPos = transform.position + new Vector3(direction.x * fireOffset, direction.y * fireOffset, 0);
-
-        // 火を生成
-        GameObject breath = Instantiate(fireBreathPrefab, spawnPos, Quaternion.identity);
+        // 火を生成（口の位置）
+        GameObject breath = Instantiate(fireBreathPrefab, firePoint.position, Quaternion.identity);
 
         // 火をプレイヤー方向へ飛ばす
         Rigidbody2D br = breath.GetComponent<Rigidbody2D>();
         if (br != null)
         {
-            br.linearVelocity = direction * 6f; // 火の速さ
+            br.linearVelocity = direction * fireSpeed;
         }
 
-        // ★ 火の向きをプレイヤー方向に向ける（回転）
+        // 火の向きを回転させる
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         breath.transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        // （横移動のみの場合は左右反転のみにしてもOK）
 
         Destroy(breath, 1f);
     }

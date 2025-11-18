@@ -186,4 +186,5 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 1.5
   fireBreathPrefab: {fileID: 6231636062930442421, guid: e325c0428217c2e4995338ea71b3e4d9, type: 3}
-  fireOffset: 1
+  firePoint: {fileID: 0}
+  fireSpeed: 6
