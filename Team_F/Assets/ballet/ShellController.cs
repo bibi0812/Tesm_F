@@ -18,13 +18,5 @@ public class ShellController : MonoBehaviour
             // 弾を削除
             Destroy(gameObject);
         }
-        //// ?? ブロックをリセット
-        //BlockManager manager = FindObjectOfType<BlockManager>();
-        //if (manager != null)
-        //{
-        //    manager.ResetAllBlocks();
-        //}
-
-        //Debug.Log("リスタートしました。ブロックを元に戻しました。");
     }
 }
