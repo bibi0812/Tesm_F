@@ -862,16 +862,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8176586562634795394, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 8176586562634795394, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
       propertyPath: m_Name
       value: Icicle
       objectReference: {fileID: 0}
     - target: {fileID: 8235097356907795167, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.84
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 8235097356907795167, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.58
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 8235097356907795167, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1107,7 +1111,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1241920948}
   - {fileID: 1111045856}
-  - {fileID: 1006364925593348477}
   - {fileID: 5633738150756790718}
   - {fileID: 3837268355811602431}
   - {fileID: 1719913566}
@@ -1115,3 +1118,4 @@ SceneRoots:
   - {fileID: 1512819451}
   - {fileID: 2045191591}
   - {fileID: 1459233960}
+  - {fileID: 1006364925593348477}
