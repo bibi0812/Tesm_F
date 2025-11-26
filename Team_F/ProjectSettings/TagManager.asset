@@ -13,6 +13,7 @@ TagManager:
   - Gole
   - Goal
   - Switch
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

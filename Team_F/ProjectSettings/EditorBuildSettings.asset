@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/matuda eiji/Test_matuda.unity
     guid: 1aa25a5c26efb7848a1f00d2d8cab935
+  - enabled: 1
+    path: Assets/Stage/Select.unity
+    guid: 4328a5f75a092e84ea6d1022b1a64f0c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
