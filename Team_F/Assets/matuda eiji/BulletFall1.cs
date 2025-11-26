@@ -22,7 +22,6 @@ public class BulletFall1 : MonoBehaviour
 
     void Update()
     {
-        
         // ‰º•ûŒü‚ÖˆÚ“®
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
 

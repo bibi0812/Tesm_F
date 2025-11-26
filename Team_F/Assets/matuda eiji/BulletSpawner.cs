@@ -8,10 +8,23 @@ public class BulletSpawner : MonoBehaviour
     public float spawnInterval = 0.5f; // ’e‚ğo‚·ŠÔŠu
     private float timer = 0f;          // Œo‰ßŠÔ
 
-    void Awake()
-    {
-       
-    }
+    //void Awake()
+    //{
+    //    // ƒVƒ“ƒOƒ‹ƒgƒ“‚Ìİ’è
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+
+    //        // ƒV[ƒ“‚ğ‚Ü‚½‚¢‚Å‚àíœ‚µ‚È‚¢
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        // 2ŒÂ–ÚˆÈ~‚Ííœ ¨ ’e‚ª”{‘‚·‚é‚Ì‚ğ–h‚®
+    //        Destroy(gameObject);
+    //        return;
+    //    }
+    //}
 
     void Update()
     {
