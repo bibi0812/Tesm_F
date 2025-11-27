@@ -162,7 +162,7 @@ public class EnemyPatrol : MonoBehaviour
 
         Rigidbody2D br = breath.GetComponent<Rigidbody2D>();
         if (br != null)
-            br.linearVelocity = direction * 10f;
+            br.linearVelocity = direction * 15f;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         breath.transform.rotation = Quaternion.Euler(0, 0, angle);

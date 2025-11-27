@@ -1,22 +1,17 @@
 using UnityEngine;
 
-public class RedKeyOrb : MonoBehaviour
+public class RedKey : MonoBehaviour
 {
-    public int keyValue = 1; // 取得したカギの数
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // プレイヤーにカギを渡す（Inventoryなどに追加する場合）
-            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
-            if (inventory != null)
+            PlayerInventory inv = other.GetComponent<PlayerInventory>();
+            if (inv != null)
             {
-                inventory.AddKey(keyValue);
+                inv.AddKey(1);  // ← 鍵を増やす
+                Destroy(gameObject); // 鍵を消す
             }
-
-            // カギオーブを消す
-            Destroy(gameObject);
         }
     }
 }

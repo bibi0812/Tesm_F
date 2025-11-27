@@ -2,17 +2,23 @@ using UnityEngine;
 
 public class RedKeyDoor : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
+            PlayerInventory inventory = collision.collider.GetComponent<PlayerInventory>();
+
             if (inventory != null)
             {
-                // カギがあれば壁を消す
-                if (inventory.UseKey())
+                // 鍵が1つ以上あれば UseKey(1) が true になる
+                if (inventory.UseKey(1))
                 {
-                    Destroy(gameObject); // 壁を削除して通れるように
+                    Debug.Log("赤鍵ドア解除！ 壁を破壊！");
+                    Destroy(gameObject);   // ← 壁を消す
+                }
+                else
+                {
+                    Debug.Log("鍵が無いため壁は開かない");
                 }
             }
         }
