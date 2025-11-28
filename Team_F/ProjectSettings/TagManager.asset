@@ -14,7 +14,6 @@ TagManager:
   - Goal
   - Switch
   - Checkpoint
-  - Ground
   layers:
   - Default
   - TransparentFX

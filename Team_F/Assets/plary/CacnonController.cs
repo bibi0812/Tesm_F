@@ -20,7 +20,7 @@ public class CannonController : MonoBehaviour
 
     public float fireSpeed = 20.0f;  // 弾の発射速度
 
-    public float recoilForce = 10.0f; // 砲台に加わる反動の強さ
+    public float recoilForce = 1.0f; // 砲台に加わる反動の強さ
 
     // 🔥 新しく追加する変数
 
