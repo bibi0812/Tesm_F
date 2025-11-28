@@ -2,31 +2,33 @@ using UnityEngine;
 
 public class BollReset : MonoBehaviour
 {
-    public Vector3 respawnPoint;  // 復活地点（初期位置＋更新も可能）
+    public Vector3 respawnPoint;  // ← 復活地点（初期位置＋更新も可能）
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        respawnPoint = transform.position;   // 最初の位置を登録
+
+        // ゲーム開始時の初期位置を復活地点にする
+        respawnPoint = transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // ★ チェックポイントに触れたら復活地点を更新
+        //チェックポイントに触れたら復活ポイント更新
         if (other.CompareTag("Checkpoint"))
         {
-            // チェックポイントの少し上にずらす（例：0.5f）
             respawnPoint = other.transform.position + new Vector3(0, 0.5f, 0);
             Debug.Log("チェックポイント更新：" + respawnPoint);
         }
 
-        // ★ 敵や穴に触れたら復活
+        //落ち穴や敵に触れたら復活
         if (other.CompareTag("Hole") || other.CompareTag("Enemy"))
         {
+            // 位置を復活地点に戻す
             transform.position = respawnPoint;
 
-            // 動きをリセット（勢いが残らないように）
+            // 動きをリセット（勢いが残ると変な動きになる）
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }

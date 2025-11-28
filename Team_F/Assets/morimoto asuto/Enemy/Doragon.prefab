@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6597fa0572f4744aff48803e14d956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 10
   moveSpeed: 2
   moveDistance: 3
   chaseSpeed: 4
@@ -186,5 +187,5 @@ MonoBehaviour:
   attackRange: 5
   attackCooldown: 1.5
   fireBreathPrefab: {fileID: 6231636062930442421, guid: e325c0428217c2e4995338ea71b3e4d9, type: 3}
-  firePoint: {fileID: 0}
-  fireSpeed: 6
+  fireOffset: 1
+  redKeyOrbPrefab: {fileID: 4449763798766568795, guid: d6202edd29439da43a15a425276b45b6, type: 3}
