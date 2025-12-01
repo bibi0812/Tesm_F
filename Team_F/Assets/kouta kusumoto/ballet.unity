@@ -369,8 +369,8 @@ Transform:
   m_GameObject: {fileID: 636318448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0750794, y: 14.851425, z: -10}
-  m_LocalScale: {x: 1.2969247, y: 3.827687, z: 1}
+  m_LocalPosition: {x: -2.0750794, y: 14.851422, z: -10}
+  m_LocalScale: {x: 1.296925, y: 3.8276868, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 76693518}
@@ -667,11 +667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.39
+      value: 11.12
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0748
+      value: -3.81
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
@@ -978,11 +978,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1849557011179047883, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.07
+      value: 9.26
       objectReference: {fileID: 0}
     - target: {fileID: 1849557011179047883, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.09
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 1849557011179047883, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1019,6 +1019,14 @@ PrefabInstance:
     - target: {fileID: 3485790826583744421, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
       propertyPath: m_Name
       value: Icicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291735875522996128, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
+      propertyPath: resetTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664214694679787719, guid: 9c6242298f0908243b6bf6341408a887, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
