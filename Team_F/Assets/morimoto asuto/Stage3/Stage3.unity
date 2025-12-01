@@ -119,6 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &33228078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +196,8 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 328607161}
   m_SourcePrefab: {fileID: 100100000, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &109445591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,6 +317,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.33, y: 3.26}
   m_EdgeRadius: 0
+<<<<<<< HEAD
 --- !u!1001 &152581998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,6 +462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 23
   resetTime: 5
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &218835851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -523,6 +529,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f323b88da9930e4fa4200edccc09f52, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &242897681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -667,6 +674,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.35, y: 2.55}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &294969075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -733,6 +742,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 308a48596c1e108479d5fe2d09f06725, type: 3}
+<<<<<<< HEAD
 --- !u!1 &328607157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8176586562634795394, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
@@ -928,6 +938,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.35, y: 2.55}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &538922142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,6 +1005,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05dc6befed3b91e4eb39ea07f990469c, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &600521631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1425,6 +1438,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.35, y: 2.55}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!4 &729088029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
@@ -1762,6 +1777,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
+<<<<<<< HEAD
 --- !u!1 &903592099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8176586562634795394, guid: 9410dfe831b4faa4a97b2d77f502c54c, type: 3}
@@ -1827,6 +1843,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.35, y: 2.55}
   m_EdgeRadius: 0
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1 &915279059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2242,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05dc6befed3b91e4eb39ea07f990469c, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &1293902327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2512,6 +2531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 0
   resetTime: 5
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &1360177549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3120,6 +3141,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9, y: 1.92}
   m_EdgeRadius: 0
+<<<<<<< HEAD
 --- !u!1001 &1552350750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3408,6 +3430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 0
   resetTime: 5
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &1713632529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3729,6 +3753,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fffeadf079f0f6945839854caca1fe21, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &1999677803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4017,6 +4042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 0
   resetTime: 5
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1001 &2007644485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4082,6 +4109,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fffeadf079f0f6945839854caca1fe21, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &2073141894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4226,6 +4254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 23
   resetTime: 5
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4237,16 +4267,20 @@ SceneRoots:
   - {fileID: 1292909137}
   - {fileID: 1360666603}
   - {fileID: 218835851}
+<<<<<<< HEAD
   - {fileID: 1510993225}
   - {fileID: 602621105}
   - {fileID: 627912365}
   - {fileID: 600521631}
   - {fileID: 242897681}
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
   - {fileID: 826044089}
   - {fileID: 1713632529}
   - {fileID: 1525345110}
   - {fileID: 833772318}
   - {fileID: 1439451206}
+<<<<<<< HEAD
   - {fileID: 372381279}
   - {fileID: 1293902327}
   - {fileID: 152581998}
@@ -4257,6 +4291,8 @@ SceneRoots:
   - {fileID: 2003199150}
   - {fileID: 1999677803}
   - {fileID: 1327154742}
+=======
+>>>>>>> parent of fa8f97a (Merge branch 'main' of https://github.com/bibi0812/Tesm_F)
   - {fileID: 1789745789}
   - {fileID: 1550916484}
   - {fileID: 1095781243}
