@@ -1,6 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!1 &6285656975245354808
+========
+--- !u!1 &3485790826583744421
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
 --- !u!1 &8176586562634795394
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +16,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  - component: {fileID: 4485234256792107785}
+  - component: {fileID: 8982737822760054207}
+  - component: {fileID: 4964238268179822081}
+  - component: {fileID: 1125033131477849653}
+  - component: {fileID: 4787090730058776021}
+  - component: {fileID: 8632149297577260}
+========
+  - component: {fileID: 1849557011179047883}
+  - component: {fileID: 6042433958020239234}
+  - component: {fileID: 6952282959368376339}
+  - component: {fileID: 4664214694679787719}
+  - component: {fileID: 4291735875522996128}
+  - component: {fileID: 6810452606785372167}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
   - component: {fileID: 8235097356907795167}
   - component: {fileID: 1220173695814856260}
   - component: {fileID: 4389555990679610437}
   - component: {fileID: 4364874340805939378}
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
   m_Layer: 0
   m_Name: Icicle
   m_TagString: Hole
@@ -19,28 +45,66 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!4 &4485234256792107785
+========
+--- !u!4 &1849557011179047883
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
 --- !u!4 &8235097356907795167
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.59, y: 4.48, z: 0}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.07, y: 4.09, z: 0}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
   m_GameObject: {fileID: 8176586562634795394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.84, y: 2.58, z: 0}
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
   m_LocalScale: {x: -1.7320431, y: 1.854265, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!212 &8982737822760054207
+========
+--- !u!212 &6042433958020239234
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
 --- !u!212 &1220173695814856260
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
   m_GameObject: {fileID: 8176586562634795394}
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -89,14 +153,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!50 &4964238268179822081
+========
+--- !u!50 &6952282959368376339
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
 --- !u!50 &4389555990679610437
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
   m_GameObject: {fileID: 8176586562634795394}
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -116,17 +196,112 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!68 &1125033131477849653
+========
+--- !u!68 &4664214694679787719
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.9786298, y: 1.357304}
+  - {x: -0.045615666, y: -1.884019}
+  - {x: 1.1314312, y: 1.4422984}
+  - {x: -1.0383364, y: 1.377562}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!114 &4787090730058776021
+========
+--- !u!114 &4291735875522996128
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
 --- !u!114 &4364874340805939378
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+=======
   m_GameObject: {fileID: 8176586562634795394}
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47845cfb07a70884eb0b211f8d657e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   length: 10
+<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  resetTime: 5
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+--- !u!114 &8632149297577260
+========
+--- !u!114 &6810452606785372167
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab
+  m_GameObject: {fileID: 6285656975245354808}
+========
+  m_GameObject: {fileID: 3485790826583744421}
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47845cfb07a70884eb0b211f8d657e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 0
+  resetTime: 5
+=======
   isDelete: 0
+>>>>>>> parent of d96ca64 (Merge branch 'main' of https://github.com/bibi0812/Tesm_F):Team_F/Assets/Icicle/Icicle.prefab
