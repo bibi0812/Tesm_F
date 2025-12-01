@@ -457,8 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &218835851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,8 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 27
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &242897687
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -883,8 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &372381285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1093,8 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 19
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &600521637
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1238,8 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 18
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &602621111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,8 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 22
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &627912371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1786,8 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 25
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!61 &903592110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2374,8 +2367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &1327154742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2519,8 +2511,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
+--- !u!1001 &1360177549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -4.449792
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.4891706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 77.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485234256792107785, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285656975245354808, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+      propertyPath: m_Name
+      value: Icicle 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56b59a3107c384041be16045ad408efe, type: 3}
 --- !u!1001 &1360666603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3207,8 +3263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &1646523266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3352,8 +3407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &1713632529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3818,8 +3872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &2003199150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3963,8 +4016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1001 &2007644485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4173,8 +4225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
-  isDelete: 0
-  deadObj: {fileID: 0}
+  resetTime: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4218,3 +4269,4 @@ SceneRoots:
   - {fileID: 109445591}
   - {fileID: 1364754697}
   - {fileID: 1501242806}
+  - {fileID: 1360177549}
