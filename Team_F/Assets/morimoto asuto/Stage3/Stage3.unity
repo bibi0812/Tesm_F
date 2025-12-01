@@ -457,6 +457,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &218835851
 PrefabInstance:
@@ -620,6 +624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 27
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &242897687
 BoxCollider2D:
@@ -881,6 +889,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &372381285
 BoxCollider2D:
@@ -1090,6 +1102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 19
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &600521637
 BoxCollider2D:
@@ -1234,6 +1250,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 18
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &602621111
 BoxCollider2D:
@@ -1378,6 +1398,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 22
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &627912371
 BoxCollider2D:
@@ -1521,11 +1545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 74.68
+      value: 61.8
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.96
+      value: 18.1
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1780,6 +1804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 25
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!61 &903592110
 BoxCollider2D:
@@ -2367,6 +2395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &1327154742
 PrefabInstance:
@@ -2511,6 +2543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
+<<<<<<< HEAD
   resetTime: 5
 --- !u!1001 &1360177549
 PrefabInstance:
@@ -2577,6 +2610,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56b59a3107c384041be16045ad408efe, type: 3}
+=======
+  deadObj: {fileID: 0}
+  resetTime: 5
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
 --- !u!1001 &1360666603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3263,6 +3300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &1646523266
 PrefabInstance:
@@ -3407,6 +3448,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &1713632529
 PrefabInstance:
@@ -3872,6 +3917,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &2003199150
 PrefabInstance:
@@ -4016,6 +4065,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 0
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1001 &2007644485
 PrefabInstance:
@@ -4225,6 +4278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 23
+<<<<<<< HEAD
+=======
+  deadObj: {fileID: 0}
+>>>>>>> 2dde5672dcc21d62d141ae23dd29012eee5d84b0
   resetTime: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
