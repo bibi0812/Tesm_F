@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Team_F/Assets/Icicle/Icicle 1.prefab.meta
 guid: 56b59a3107c384041be16045ad408efe
+========
+guid: 9c6242298f0908243b6bf6341408a887
+>>>>>>>> d10940393d78daaf17c1548d08b481dba78badd7:Team_F/Assets/Icicle/Icicle.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
