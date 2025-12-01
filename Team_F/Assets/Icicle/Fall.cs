@@ -11,7 +11,7 @@ public class Fall : MonoBehaviour
     // ★修正: 落下後に「消えて復活」させるため、このフラグはコード内で常にtrueとして扱います。
     // public bool isDelete = false; 
 
-    public GameObject deadObj; // 死亡当たり
+  
 
     public float resetTime = 5.0f; // ★重要: 消えてから元に戻るまでの時間（秒）
 
@@ -41,7 +41,7 @@ public class Fall : MonoBehaviour
 
         // Rigidbody2Dの物理挙動を停止
         rbody.bodyType = RigidbodyType2D.Static;
-        deadObj.SetActive(false);
+     
     }
 
     // 毎フレーム（画面が更新されるたび）に呼ばれる
@@ -60,7 +60,7 @@ public class Fall : MonoBehaviour
                 {
                     // Dynamic（動的状態）に切り替えて落下開始
                     rbody.bodyType = RigidbodyType2D.Dynamic;
-                    deadObj.SetActive(true); // 死亡当たりを表示
+                   
                 }
             }
         }
@@ -130,8 +130,7 @@ public class Fall : MonoBehaviour
             mainCollider.enabled = true;
         }
 
-        // 5. 死亡当たりを非表示にする
-        deadObj.SetActive(false);
+       
 
         // 6. すべてのフラグとタイマーをリセット
         isFell = false;
