@@ -19,7 +19,7 @@ public class Fall : MonoBehaviour
     Collider2D mainCollider;        // 本体コライダーを保存
 
     bool isFell = false;            // 落下フラグ (衝突してフェードアウトを開始したか)
-    float fadeTime = 0.5f;          // フェードアウトにかける時間
+    float fadeTime = 3f;          // フェードアウトにかける時間
 
     bool isVanished = false;        // ツララが「消えている」状態のフラグ
     float currentResetTimer = 0.0f; // リセット用タイマー
