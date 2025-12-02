@@ -175,4 +175,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   length: 10
-  resetTime: 2
+  resetTime: 5
