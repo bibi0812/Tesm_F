@@ -6,7 +6,7 @@ public class ShellController : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Braek") || collision.CompareTag("Block") || collision.CompareTag("Hole"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Braek") || collision.CompareTag("Block") || collision.CompareTag("Hole") || collision.CompareTag("Ground"))
         {
             Destroy(gameObject); // 「bleck」または「Enemy」タグを持つオブジェクトに当たったら弾を消す
         }

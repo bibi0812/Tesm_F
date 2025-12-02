@@ -22,7 +22,7 @@ public class BollReset : MonoBehaviour
         }
 
         // ★ 敵や穴に触れたら復活
-        if (other.CompareTag("Hole") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Hole") || other.CompareTag("Enemy") || other.CompareTag("Bose"))
         {
             transform.position = respawnPoint;
 
