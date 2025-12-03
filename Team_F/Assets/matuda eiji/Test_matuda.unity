@@ -309,6 +309,14 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1697,8 +1705,8 @@ Canvas:
   m_GameObject: {fileID: 1032833482}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 2012961223}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1709,7 +1717,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &1032833486
 RectTransform:
@@ -2564,6 +2572,11 @@ MonoBehaviour:
 --- !u!4 &2012961220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7897045925892864887, guid: 0406a77eae538b840ae921668c4373ac, type: 3}
+  m_PrefabInstance: {fileID: 6771064978749715644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2012961223 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6685896234722080771, guid: 0406a77eae538b840ae921668c4373ac, type: 3}
   m_PrefabInstance: {fileID: 6771064978749715644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2027760942
