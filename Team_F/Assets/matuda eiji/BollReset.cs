@@ -31,4 +31,9 @@ public class BollReset : MonoBehaviour
             rb.angularVelocity = 0f;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("ぶつかった: " + collision.gameObject.name);
+    }
+
 }

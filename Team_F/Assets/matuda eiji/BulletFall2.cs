@@ -14,7 +14,7 @@ public class BulletFall2 : MonoBehaviour
         float startX = rangeX;  // rangeXが右端の座標
         transform.position = new Vector3(startX, startY, 0);
         // ランダムなX位置にセットして上から出す
-        transform.position = new Vector3(Random.Range(-rangeX + 11, rangeX), startY, 0);
+        transform.position = new Vector3(Random.Range(-rangeX + 20, rangeX), startY, 0);
 
         // 回転速度をランダムにする（例：90~360度/秒）
         rotateSpeed = Random.Range(180f, 360f);
