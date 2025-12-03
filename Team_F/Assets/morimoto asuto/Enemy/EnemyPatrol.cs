@@ -77,6 +77,7 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+
     // プレイヤーの視界チェックと追跡・攻撃の判断を行う
     void Update()
     {
@@ -126,15 +127,31 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
-        Debug.Log("敵を倒した！");
+        
+            Debug.Log("敵を倒した！");
 
-        // 赤いカギオーブのPrefabが設定されていれば、ドロップ
-        if (redKeyOrbPrefab != null)
-            // 敵の位置から少し上に生成
-            Instantiate(redKeyOrbPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
+            // ▽ BGMを通常に戻す（BGMManagerのEndBossBattle呼び出し）▽
+            BGMManager bgm = FindObjectOfType<BGMManager>();
+            if (bgm != null)
+            {
+                bgm.EndBossBattle();
+            }
+            else
+            {
+                Debug.LogWarning("BGMManagerがシーンに見つかりませんでした。");
+            }
+            // ▲ 追加部分 ▲
 
-        // 敵自身を破壊
-        Destroy(gameObject);
+            // 赤いカギオーブのPrefabが設定されていれば、ドロップ
+            if (redKeyOrbPrefab != null)
+            {
+                // 敵の位置から少し上に生成
+                Instantiate(redKeyOrbPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
+            }
+
+            // 敵自身を破壊
+            Destroy(gameObject);
+        
     }
 
     // パトロール移動処理
