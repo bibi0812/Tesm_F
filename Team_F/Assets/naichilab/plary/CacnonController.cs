@@ -85,7 +85,8 @@ public class CannonController : MonoBehaviour
     void Update()
 
     {
-
+        // ポーズ中は何もしない
+        if (Menu.isPaused) return;
         // マウスの左クリックが押されたときに弾を発射
 
         if (Input.GetMouseButtonDown(0))

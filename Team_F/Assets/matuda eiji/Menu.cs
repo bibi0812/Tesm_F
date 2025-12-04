@@ -1,3 +1,60 @@
+////using UnityEngine;
+
+////public class Menu : MonoBehaviour
+////{
+////    [Header("ポーズUI")]
+////    public GameObject pauseUI;
+
+////    [Header("ゴールUI")]
+////    public GameObject goalUI;   // ← これを追加（ここにゴールUIを入れる）
+
+////    private bool isPaused = false;
+
+////    void Start()
+////    {
+////        pauseUI.SetActive(false);
+////        goalUI.SetActive(false);
+////    }
+
+////    void Update()
+////    {
+////        // ゴールUIが出ている時はメニュー禁止
+////        if (goalUI != null && goalUI.activeSelf)
+////            return;
+
+////        if (Input.GetKeyDown(KeyCode.Escape))
+////        {
+////            if (isPaused)
+////                ResumeGame();
+////            else
+////                PauseGame();
+////        }
+////    }
+////    private void OnTriggerEnter2D(Collider2D collision)
+////    {
+////        if (collision.CompareTag("Goal"))
+////        {
+////            goalUI.SetActive(true);
+////            Time.timeScale = 0f; // ゲームを止める（任意）
+////        }
+////    }
+
+////    public void PauseGame()
+////    {
+////        pauseUI.SetActive(true);
+////        Time.timeScale = 0f;
+////        isPaused = true;
+////    }
+
+////    public void ResumeGame()
+////    {
+////        pauseUI.SetActive(true);
+////        Time.timeScale = 1f;
+////        isPaused = false;
+////    }
+////}
+
+
 //using UnityEngine;
 
 //public class Menu : MonoBehaviour
@@ -6,10 +63,7 @@
 //    public GameObject pauseUI;
 
 //    [Header("ゴールUI")]
-//    public GameObject goalUI;   // ← これを追加（ここにゴールUIを入れる）
-
-//    [Header("スタートUI（カウントダウン）")]
-//    public GameObject startUIButton;
+//    public GameObject goalUI;
 
 //    private bool isPaused = false;
 
@@ -21,10 +75,11 @@
 
 //    void Update()
 //    {
-//        // ゴールUIが出ている時はメニュー禁止
+//        // ゴールUIが出ている時はポーズ禁止
 //        if (goalUI != null && goalUI.activeSelf)
 //            return;
 
+//        // Esc キーでポーズ → 解除
 //        if (Input.GetKeyDown(KeyCode.Escape))
 //        {
 //            if (isPaused)
@@ -33,61 +88,60 @@
 //                PauseGame();
 //        }
 //    }
+
 //    private void OnTriggerEnter2D(Collider2D collision)
 //    {
 //        if (collision.CompareTag("Goal"))
 //        {
 //            goalUI.SetActive(true);
-//            Time.timeScale = 0f; // ゲームを止める（任意）
+//            Time.timeScale = 0f;
 //        }
 //    }
 
 //    public void PauseGame()
 //    {
 //        pauseUI.SetActive(true);
-//        Time.timeScale = 0f;
+//        Time.timeScale = 0f;  // ゲーム停止
 //        isPaused = true;
 //    }
 
 //    public void ResumeGame()
 //    {
-//        startUIButton.SetActive(false);
-//        Time.timeScale = 1f;
+//        pauseUI.SetActive(false);
+//        Time.timeScale = 1f;  // ゲーム再開
 //        isPaused = false;
 //    }
 //}
-
 using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    [Header("ポーズUI (MenuUI)")]
-    public GameObject pauseUI;  // MenuUI
+    [Header("ポーズUI")]
+    public GameObject pauseUI;
 
     [Header("ゴールUI")]
     public GameObject goalUI;
 
-    [Header("MenuUI 内のスタートボタン")]
-    public GameObject startUIButton;
-
-    private bool isPaused = false;
+    // ★どこからでも参照できる「ポーズ中フラグ」
+    public static bool isPaused = false;
 
     void Start()
     {
-        pauseUI.SetActive(false);       // MenuUI 非表示
-        startUIButton.SetActive(false); // ボタンも非表示
-        if (goalUI != null) goalUI.SetActive(false);
+        pauseUI.SetActive(false);
+        goalUI.SetActive(false);
+        isPaused = false;
     }
 
     void Update()
     {
+        // ゴールUIが出ている時はポーズ禁止
         if (goalUI != null && goalUI.activeSelf)
-            return; // ゴール中は無効
+            return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
-                ClosePauseMenu(); // Escでポーズ解除
+                ResumeGame();
             else
                 PauseGame();
         }
@@ -97,32 +151,24 @@ public class Menu : MonoBehaviour
     {
         if (collision.CompareTag("Goal"))
         {
-            if (goalUI != null) goalUI.SetActive(true);
+            goalUI.SetActive(true);
             Time.timeScale = 0f;
+            isPaused = true;
         }
     }
 
     public void PauseGame()
     {
-        pauseUI.SetActive(true);       // MenuUI 表示
-        startUIButton.SetActive(false); // ボタン非表示
+        pauseUI.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
-    }
-
-    public void ClosePauseMenu()
-    {
-        // MenuUIは表示したまま、ボタンだけ出す
-        startUIButton.SetActive(true);
-        // ゲームはまだ停止
+        isPaused = true;     // ★ 追加
     }
 
     public void ResumeGame()
     {
-        // ボタン押したらMenuUIも消す
         pauseUI.SetActive(false);
         Time.timeScale = 1f;
-        isPaused = false;
+        isPaused = false;    // ★ 追加
     }
 }
 

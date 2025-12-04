@@ -104,4 +104,4 @@ MonoBehaviour:
   rotateSpeed: 270
   destroyY: -6
   startY: 6
-  rangeX: 8
+  rangeX: 7

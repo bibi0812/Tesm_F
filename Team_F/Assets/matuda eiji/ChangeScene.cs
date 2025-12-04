@@ -20,6 +20,7 @@ public class ChangeScene:MonoBehaviour
     public void Load()
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 }
 
