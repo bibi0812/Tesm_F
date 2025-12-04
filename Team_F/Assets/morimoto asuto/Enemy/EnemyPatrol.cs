@@ -130,17 +130,6 @@ public class EnemyPatrol : MonoBehaviour
         
             Debug.Log("敵を倒した！");
 
-            // ▽ BGMを通常に戻す（BGMManagerのEndBossBattle呼び出し）▽
-            BGMManager bgm = FindObjectOfType<BGMManager>();
-            if (bgm != null)
-            {
-                bgm.EndBossBattle();
-            }
-            else
-            {
-                Debug.LogWarning("BGMManagerがシーンに見つかりませんでした。");
-            }
-            // ▲ 追加部分 ▲
 
             // 赤いカギオーブのPrefabが設定されていれば、ドロップ
             if (redKeyOrbPrefab != null)
