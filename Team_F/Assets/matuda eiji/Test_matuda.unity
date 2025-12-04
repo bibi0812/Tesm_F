@@ -377,11 +377,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
---- !u!1 &229719700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4111219365812071156, guid: 627585e733326b342a359a0f6b6dfab4, type: 3}
-  m_PrefabInstance: {fileID: 5856988637160465746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &229719706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3753367040364808394, guid: 627585e733326b342a359a0f6b6dfab4, type: 3}
@@ -1916,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: objPrefab
       value: 
-      objectReference: {fileID: 229719700}
+      objectReference: {fileID: 4111219365812071156, guid: 627585e733326b342a359a0f6b6dfab4, type: 3}
     - target: {fileID: 7611848625019065484, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_Name
       value: cannon 1
