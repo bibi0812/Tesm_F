@@ -85,6 +85,9 @@ public class CannonController : MonoBehaviour
     void Update()
 
     {
+        // 死亡中は完全に操作禁止
+        if (GameManager.isDead)
+            return;
         // ポーズ中は何もしない
         if (Menu.isPaused) return;
         // マウスの左クリックが押されたときに弾を発射
