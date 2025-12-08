@@ -40,6 +40,7 @@ public class EnemyPatrol : MonoBehaviour
     private bool movingRight = false; // 右に移動中かどうかのフラグ
     private bool isChasing = false; // プレイヤーを追跡中かどうかのフラグ
     private Transform player;       // プレイヤーのTransformコンポーネント
+    private bool bossMusicStarted = false;
 
     // --- Unity イベント関数 ---
 
@@ -64,18 +65,22 @@ public class EnemyPatrol : MonoBehaviour
         currentHP = maxHP;
     }
 
-    // トリガーコライダーに何かが侵入したときに呼ばれる
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // 侵入したオブジェクトのタグが"Dead"（例: プレイヤーの発射物）の場合
         if (other.CompareTag("Dead"))
         {
-            // ダメージを受ける
             TakeDamage(1);
-            // 衝突したオブジェクト（発射物など）を破壊
             Destroy(other.gameObject);
         }
+
+        // ★ボスエリアに入ったらBGM切り替え（1回だけ）
+        if (bossMusicStarted && !bossMusicStarted && other.CompareTag("Player"))
+        {
+            bossMusicStarted = true; // フラグをONに
+            FindObjectOfType<BGMBossController>()?.StartBossMusic();
+        }
     }
+
 
 
     // プレイヤーの視界チェックと追跡・攻撃の判断を行う
@@ -127,21 +132,24 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
-        
             Debug.Log("敵を倒した！");
 
+            // ★ボスBGMが開始されている場合のみ戻す
+            if (bossMusicStarted)
+            {
+                FindObjectOfType<BGMBossController>()?.StopBossMusic();
+            }
 
-            // 赤いカギオーブのPrefabが設定されていれば、ドロップ
             if (redKeyOrbPrefab != null)
             {
-                // 敵の位置から少し上に生成
                 Instantiate(redKeyOrbPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
             }
 
-            // 敵自身を破壊
             Destroy(gameObject);
-        
-    }
+     }
+
+
+   
 
     // パトロール移動処理
     void Patrol()
