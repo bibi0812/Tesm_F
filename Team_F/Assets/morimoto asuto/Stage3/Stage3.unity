@@ -3879,12 +3879,27 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 9.3
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7c2f4ab8d8d1da10cbe5ede5c836a52e08d45052
       value: -13.4
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.6
+<<<<<<< HEAD
 >>>>>>> parent of 0471f35 (スタート位置)
+=======
+=======
+      value: 121.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
+>>>>>>> 3a817f5d44c65ed3ef9b1fcd5bd703ddc5af7af4
+>>>>>>> 0471f35b64915cb80adbb07bacfcaca66ee6058d
+>>>>>>> 7c2f4ab8d8d1da10cbe5ede5c836a52e08d45052
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
