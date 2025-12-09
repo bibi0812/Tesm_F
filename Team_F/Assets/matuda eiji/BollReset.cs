@@ -69,5 +69,12 @@ public class BollReset : MonoBehaviour
         // ▼ 操作復活
         GameManager.isDead = false;
         isFlashing = false;
+
+        // ▼ シーン中の弾をすべて削除
+        foreach (var bullet in GameObject.FindGameObjectsWithTag("Dead"))
+        {
+            Destroy(bullet);
+        }
+
     }
 }
