@@ -1,62 +1,70 @@
 using UnityEngine;
 
-// Rigidbody2D と Collider2D を必ずアタッチさせる
+// 必要なコンポーネントとしてRigidbody2DとCollider2Dを自動的にアタッチする
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 public class EnemyPatrol : MonoBehaviour
 {
+    // --- 公開変数（インスペクターで設定可能） ---
+
     [Header("耐久設定")]
-    public int maxHP = 10;      // 最大HP
-    private int currentHP;      // 現在のHP
+    public int maxHP = 10;          // 最大体力
+    private int currentHP;          // 現在の体力
 
     [Header("移動設定")]
-    public float moveSpeed = 2f;      // パトロール移動速度
-    public float moveDistance = 3f;   // 左右の移動範囲距離
-    public float chaseSpeed = 4f;     // 追跡時の速度
+    public float moveSpeed = 2f;    // パトロール時の移動速度
+    public float moveDistance = 3f; // パトロールの片道移動距離
+    public float chaseSpeed = 4f;   // プレイヤー追跡時の移動速度
 
     [Header("視界設定")]
-    public float detectionRange = 5f;     // プレイヤー発見距離
-    public float stopChaseRange = 7f;     // 追跡終了距離
-    public LayerMask playerLayer;         // 未使用だが将来用設定
+    public float detectionRange = 5f;   // プレイヤーを検知する（追跡を開始する）範囲
+    public float stopChaseRange = 7f;   // プレイヤーを見失う（追跡を終了する）範囲
+    public LayerMask playerLayer;       // プレイヤーのレイヤーマスク（未使用だが設定として残す）
 
     [Header("攻撃設定")]
-    public float attackRange = 1.2f;      // 攻撃可能距離
-    public float attackCooldown = 1.5f;   // 攻撃クールダウン時間
-    private float lastAttackTime = 0f;    // 最後の攻撃時刻
+    public float attackRange = 1.2f;    // 攻撃が可能な範囲
+    public float attackCooldown = 1.5f; // 攻撃のクールダウン時間
+    private float lastAttackTime = 0f;  // 最後に攻撃した時間
 
     [Header("攻撃エフェクト")]
-    public GameObject fireBreathPrefab;   // ブレスPrefab
-    public Transform breathPoint;         // 口位置（発射位置）
+    public GameObject fireBreathPrefab; // 攻撃（火炎ブレスなど）のPrefab
+    public float fireOffset = 1f;       // 攻撃発生位置のオフセット
 
     [Header("カギオーブ設定")]
-    public GameObject redKeyOrbPrefab;    // 敵撃破時のドロップ
+    public GameObject redKeyOrbPrefab;  // 敵が倒されたときにドロップするアイテムのPrefab
 
-    private Rigidbody2D rb;
-    private Vector2 startPos;             // 初期位置
-    private bool movingRight = false;     // 移動方向判定
-    private bool isChasing = false;       // 追跡中フラグ
-    private Transform player;             // プレイヤー参照
+    // --- プライベート変数 ---
+
+    private Rigidbody2D rb;         // Rigidbody2Dコンポーネント
+    private Vector2 startPos;       // パトロールの開始位置（初期位置）
+    private bool movingRight = false; // 右に移動中かどうかのフラグ
+    private bool isChasing = false; // プレイヤーを追跡中かどうかのフラグ
+    private Transform player;       // プレイヤーのTransformコンポーネント
     private bool bossMusicStarted = false;
 
-    // ====================================================
-    // 初期化処理
-    // ====================================================
+    // --- Unity イベント関数 ---
+
+    // スクリプトが最初にロードされたときに一度だけ呼ばれる
     void Start()
     {
+        // Rigidbody2Dコンポーネントを取得
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;         // 重力不要
-        rb.freezeRotation = true;     // 回転固定
-
+        // 重力を無効化（2Dのトップダウンや特定プラットフォーマーで使う設定）
+        rb.gravityScale = 0f;
+        // 回転を固定
+        rb.freezeRotation = true;
+        // 初期位置を保存
         startPos = transform.position;
+
+        // "Player"タグを持つゲームオブジェクトを検索し、Transformを取得
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player == null)
+            Debug.LogWarning("Playerが見つかりません！'Player'タグを設定してください。");
 
-        if (!player)
-            Debug.LogWarning("Playerが見つかりません!");
-
+        // 体力を最大値で初期化
         currentHP = maxHP;
     }
 
-    // ダメージを受けるトリガー
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Dead"))
@@ -64,163 +72,202 @@ public class EnemyPatrol : MonoBehaviour
             TakeDamage(1);
             Destroy(other.gameObject);
         }
+
+        // ★ボスエリアに入ったらBGM切り替え（1回だけ）
+        if (bossMusicStarted && !bossMusicStarted && other.CompareTag("Player"))
+        {
+            bossMusicStarted = true; // フラグをONに
+            FindObjectOfType<BGMBossController>()?.StartBossMusic();
+        }
     }
 
-    // ====================================================
-    // 追跡判定と攻撃判定
-    // ====================================================
+
+
+    // プレイヤーの視界チェックと追跡・攻撃の判断を行う
     void Update()
     {
-        if (!player) return;
+        // プレイヤーが見つからない場合は処理をスキップ
+        if (player == null) return;
 
+        // プレイヤーまでの距離を計算
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // 範囲内なら追跡開始
-        if (distanceToPlayer <= detectionRange) isChasing = true;
-        // 離れたら追跡終了
-        else if (distanceToPlayer > stopChaseRange) isChasing = false;
+        // 距離が検知範囲内なら追跡フラグをON
+        if (distanceToPlayer <= detectionRange)
+            isChasing = true;
+        // 距離が追跡停止範囲を超えたら追跡フラグをOFF
+        else if (distanceToPlayer > stopChaseRange)
+            isChasing = false;
 
-        // 追跡中のみ攻撃チェック
-        if (isChasing) TryAttackPlayer();
+        // 追跡中の場合、攻撃可能かどうかをチェック
+        if (isChasing)
+            TryAttackPlayer();
     }
 
-    // ====================================================
-    // 物理移動処理
-    // ====================================================
+    // 物理演算の更新（一定時間ごと）
     void FixedUpdate()
     {
-        if (isChasing) ChasePlayer();
-        else Patrol();
+        // 追跡中ならプレイヤーを追いかける処理を実行
+        if (isChasing)
+            ChasePlayer();
+        // 追跡中でなければパトロール処理を実行
+        else
+            Patrol();
     }
 
-    // ====================================================
-    // ダメージ処理
-    // ====================================================
-    void TakeDamage(int dmg)
+    // --- メソッド（関数） ---
+
+    // ダメージを受ける処理
+    void TakeDamage(int damage)
     {
-        currentHP -= dmg;
-        if (currentHP <= 0) Die();
+        // 体力を減らす
+        currentHP -= damage;
+        // 体力が0以下になったら死亡処理
+        if (currentHP <= 0)
+        {
+            Die();
+        }
     }
 
     // 死亡処理
     void Die()
     {
-        Debug.Log("敵を倒した！");
+            Debug.Log("敵を倒した！");
 
-        // ボスならBGM戻す
-        if (bossMusicStarted)
-        {
-            FindObjectOfType<BGMBossController>()?.StopBossMusic();
-        }
+            // ★ボスBGMが開始されている場合のみ戻す
+            if (bossMusicStarted)
+            {
+                FindObjectOfType<BGMBossController>()?.StopBossMusic();
+            }
 
-        // アイテムドロップ
-        if (redKeyOrbPrefab != null)
-            Instantiate(redKeyOrbPrefab, transform.position + Vector3.up, Quaternion.identity);
+            if (redKeyOrbPrefab != null)
+            {
+                Instantiate(redKeyOrbPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
+            }
 
-        Destroy(gameObject);
-    }
+            Destroy(gameObject);
+     }
 
-    // ====================================================
-    // パトロール移動
-    // ====================================================
+
+   
+
+    // パトロール移動処理
     void Patrol()
     {
-        // 左右移動
+        // 移動方向（右なら1、左なら-1）を決定
         float moveDir = movingRight ? 1f : -1f;
+        // Rigidbody2Dで移動（物理演算による移動）
         rb.linearVelocity = new Vector2(moveDir * moveSpeed, rb.linearVelocity.y);
 
-        // 前方の壁チェック
+        // --- 壁検知と方向転換 ---
+        // 移動方向に短い距離でRaycastを飛ばし、"Ground"レイヤーの壁があるかチェック
         RaycastHit2D wallCheck = Physics2D.Raycast(transform.position, Vector2.right * moveDir, 0.3f, LayerMask.GetMask("Ground"));
         if (wallCheck.collider != null)
         {
+            // 壁に当たったら方向を反転
             movingRight = !movingRight;
-            Flip();
+            Flip(); // 向きを反転させる
         }
 
-        // 移動範囲を超えたら反転
+        // --- パトロール範囲の端に到達したかチェックと方向転換 ---
+        // 初期位置から設定された距離を超えて右に移動した場合
         if (transform.position.x >= startPos.x + moveDistance && movingRight)
         {
-            movingRight = false; Flip();
+            movingRight = false; // 左へ方向転換
+            Flip(); // 向きを反転させる
         }
+        // 初期位置から設定された距離を超えて左に移動した場合
         else if (transform.position.x <= startPos.x - moveDistance && !movingRight)
         {
-            movingRight = true; Flip();
+            movingRight = true; // 右へ方向転換
+            Flip(); // 向きを反転させる
         }
     }
 
-    // ====================================================
-    // プレイヤー追跡
-    // ====================================================
+    // プレイヤー追跡処理
     void ChasePlayer()
     {
+        if (player == null) return;
+
+        // プレイヤーへの方向を計算し、正規化（長さ1）する
         Vector2 direction = (player.position - transform.position).normalized;
+        // 追跡速度で移動
         rb.linearVelocity = direction * chaseSpeed;
 
-        // プレイヤー方向に向きを合わせる
+        // --- 壁検知と停止 ---
+        // プレイヤー方向へ短い距離でRaycastを飛ばし、"Ground"レイヤーの壁があるかチェック
+        RaycastHit2D wallCheck = Physics2D.Raycast(transform.position, direction, 0.3f, LayerMask.GetMask("Ground"));
+        if (wallCheck.collider != null)
+            // 壁があったら移動を停止
+            rb.linearVelocity = Vector2.zero;
+
+        // --- プレイヤーの方向に応じて向きを反転 ---
+        // プレイヤーが右にいるのに敵が左を向いている、またはその逆の場合
         if ((direction.x > 0 && transform.localScale.x > 0) ||
             (direction.x < 0 && transform.localScale.x < 0))
-            Flip();
+            Flip(); // 向きを反転させる
     }
 
-    // 攻撃可能なら実行
+    // 攻撃を試みる（クールダウンチェックを含む）
     void TryAttackPlayer()
     {
+        if (player == null) return;
         float dist = Vector2.Distance(transform.position, player.position);
 
+        // 距離が攻撃範囲内で、かつクールダウンが終了していたら攻撃実行
         if (dist <= attackRange && Time.time >= lastAttackTime + attackCooldown)
         {
             Attack();
-            lastAttackTime = Time.time;
+            lastAttackTime = Time.time; // 最終攻撃時間を更新
         }
     }
 
-    // ====================================================
-    // ブレス攻撃
-    // ====================================================
+    // 攻撃処理（火炎ブレスの生成と発射）
     void Attack()
     {
-        if (!breathPoint || !fireBreathPrefab) return;
+        // プレイヤーへの方向を計算
+        Vector2 direction = (player.position - transform.position).normalized;
+        // 攻撃オブジェクトの生成位置を計算（敵の位置からオフセット分ずらす）
+        Vector3 spawnPos = transform.position + new Vector3(direction.x * fireOffset, direction.y * fireOffset, 0);
+        // 攻撃オブジェクト（FireBreathPrefab）を生成
+        GameObject breath = Instantiate(fireBreathPrefab, spawnPos, Quaternion.identity);
 
-        // 方向計算
-        Vector2 direction = (player.position - breathPoint.position).normalized;
-
-        // 口から発射
-        GameObject breath = Instantiate(fireBreathPrefab, breathPoint.position, Quaternion.identity);
-
-        // 移動処理
+        // 攻撃オブジェクトのRigidbody2Dを取得し、進行方向に速度を与える
         Rigidbody2D br = breath.GetComponent<Rigidbody2D>();
-        if (br != null) br.linearVelocity = direction * 15f;
+        if (br != null)
+            br.linearVelocity = direction * 15f; // 15fはブレスの移動速度
 
-        // 見た目の向きを調整
+        // 攻撃オブジェクトを進行方向に向けるために角度を計算し、回転を設定
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         breath.transform.rotation = Quaternion.Euler(0, 0, angle);
 
+        // 1秒後に攻撃オブジェクトを破壊
         Destroy(breath, 1f);
     }
 
-    // ====================================================
-    // 向き反転＋ブレス発射位置の調整
-    // ====================================================
+    // 敵のグラフィックの左右を反転させる
     void Flip()
     {
         Vector3 scale = transform.localScale;
-        scale.x *= -1;
+        scale.x *= -1; // X軸のスケールを反転
         transform.localScale = scale;
-
-        // 口位置も左右反転
-        if (breathPoint)
-            breathPoint.localPosition = new Vector3(-breathPoint.localPosition.x, breathPoint.localPosition.y, 0);
     }
 
-    // ギズモ描画（デバッグ用）
+    // --- エディター専用機能 ---
+
+    // Unityエディターでゲームオブジェクトが選択されているときにギズモを描画する
     void OnDrawGizmosSelected()
     {
+        // 赤色で検知範囲をワイヤー球で描画
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
+
+        // 緑色で追跡停止範囲をワイヤー球で描画
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, stopChaseRange);
 
+        // 黄色で攻撃範囲をワイヤー球で描画
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
