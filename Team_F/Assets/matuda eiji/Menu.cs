@@ -134,6 +134,10 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
+        // ★ 死亡中は Esc を押しても何も起きない
+        if (GameManager.isDead)
+            return;
+
         // ゴールUIが出ている時はポーズ禁止
         if (goalUI != null && goalUI.activeSelf)
             return;
