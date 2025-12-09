@@ -1513,6 +1513,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
+      propertyPath: breathPoint
+      value: 
+      objectReference: {fileID: 1405634164}
+    - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: detectionRange
       value: 20
       objectReference: {fileID: 0}
@@ -1586,7 +1590,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1405634164}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2607797301320330531, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       insertIndex: -1
@@ -1876,6 +1883,11 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 2.005
+--- !u!4 &800216195 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
+  m_PrefabInstance: {fileID: 705593233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &847103956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2156,7 +2168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: -97
       objectReference: {fileID: 0}
     - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2857,6 +2869,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c5855dc289a73c47b099b60553a1399, type: 3}
+--- !u!1 &1405634163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405634164}
+  m_Layer: 0
+  m_Name: BreathPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1405634164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405634163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.51, y: 0.94, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 800216195}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1456766858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2931,7 +2974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -120
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 5374904457004734021, guid: 26a48bd76eab7004691723123cb3ada8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3872,34 +3915,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 102.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.3
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7c2f4ab8d8d1da10cbe5ede5c836a52e08d45052
-      value: -13.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6
-<<<<<<< HEAD
->>>>>>> parent of 0471f35 (スタート位置)
-=======
-=======
       value: 121.3
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.5
->>>>>>> 3a817f5d44c65ed3ef9b1fcd5bd703ddc5af7af4
->>>>>>> 0471f35b64915cb80adbb07bacfcaca66ee6058d
->>>>>>> 7c2f4ab8d8d1da10cbe5ede5c836a52e08d45052
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
