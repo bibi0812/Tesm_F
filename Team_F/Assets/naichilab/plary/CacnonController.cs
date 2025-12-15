@@ -168,7 +168,7 @@ public class CannonController : MonoBehaviour
 
         // 弾の寿命を2秒に設定。2秒後に自動で破棄される
 
-        Destroy(obj, 2f);
+        Destroy(obj, 2.0f);
 
         // Rigidbody2Dコンポーネントを取得して力を加える（弾を発射）
 
