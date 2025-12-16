@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 // Rigidbody2D と Collider2D を必ずアタッチさせる
@@ -5,6 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class EnemyPatrol : MonoBehaviour
 {
+    [Header("ボス専用 撃破音")]
+    public AudioClip bossDeathSE;
+
+
+
+    [Header("ダメージ演出")]
+    public AudioClip damageSE;          // ダメージ音
+    public float flashTime = 0.1f;      // 色変更時間
+    public Color damageColor = Color.red;
+
+
     [Header("耐久設定")]
     public int maxHP = 10;      // 最大HP
     private int currentHP;      // 現在のHP
@@ -31,6 +43,10 @@ public class EnemyPatrol : MonoBehaviour
     [Header("カギオーブ設定")]
     public GameObject redKeyOrbPrefab;    // 敵撃破時のドロップ
 
+    private AudioSource audioSource;
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor;
+    private Coroutine flashCoroutine;
     private Rigidbody2D rb;
     private Vector2 startPos;             // 初期位置
     private bool movingRight = false;     // 移動方向判定
@@ -44,8 +60,8 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0f;         // 重力不要
-        rb.freezeRotation = true;     // 回転固定
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
 
         startPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -54,6 +70,11 @@ public class EnemyPatrol : MonoBehaviour
             Debug.LogWarning("Playerが見つかりません!");
 
         currentHP = maxHP;
+
+        // ★ 追加
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultColor = spriteRenderer.color;
     }
 
     // ダメージを受けるトリガー
@@ -99,16 +120,42 @@ public class EnemyPatrol : MonoBehaviour
     void TakeDamage(int dmg)
     {
         currentHP -= dmg;
+
+        // ダメージ音
+        if (damageSE && audioSource)
+            audioSource.PlayOneShot(damageSE);
+
+        // 色フラッシュ（重複防止）
+        if (flashCoroutine != null)
+            StopCoroutine(flashCoroutine);
+
+        flashCoroutine = StartCoroutine(DamageFlash());
+
         if (currentHP <= 0) Die();
     }
+    IEnumerator DamageFlash()
+    {
+        spriteRenderer.color = damageColor;
+        yield return new WaitForSeconds(flashTime);
+        spriteRenderer.color = defaultColor;
+    }
+
 
     // 死亡処理
     void Die()
     {
         Debug.Log("敵を倒した！");
 
+        // ★ ボスだけ撃破音
+        if (CompareTag("Bose") && bossDeathSE != null)
+        {
+            AudioSource.PlayClipAtPoint(bossDeathSE, transform.position);
+        }
+
+       
+
         // ボスならBGM戻す
-        if (bossMusicStarted)
+        if (CompareTag("Bose") && bossMusicStarted)
         {
             FindObjectOfType<BGMBossController>()?.StopBossMusic();
         }
