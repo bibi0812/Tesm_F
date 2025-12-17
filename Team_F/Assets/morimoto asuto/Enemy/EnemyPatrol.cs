@@ -8,7 +8,9 @@ public class EnemyPatrol : MonoBehaviour
 {
     [Header("ボス専用 撃破音")]
     public AudioClip bossDeathSE;
+    private AudioSource audioSource;
 
+    
 
 
     [Header("ダメージ演出")]
@@ -43,7 +45,7 @@ public class EnemyPatrol : MonoBehaviour
     [Header("カギオーブ設定")]
     public GameObject redKeyOrbPrefab;    // 敵撃破時のドロップ
 
-    private AudioSource audioSource;
+    
     private SpriteRenderer spriteRenderer;
     private Color defaultColor;
     private Coroutine flashCoroutine;
@@ -59,6 +61,8 @@ public class EnemyPatrol : MonoBehaviour
     // ====================================================
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
@@ -144,27 +148,31 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
-        Debug.Log("敵を倒した！");
-
-        // ★ ボスだけ撃破音
-        if (CompareTag("Bose") && bossDeathSE != null)
+        // ボス撃破音
+        if (CompareTag("Bose") && bossDeathSE != null && audioSource != null)
         {
-            AudioSource.PlayClipAtPoint(bossDeathSE, transform.position);
+            audioSource.PlayOneShot(bossDeathSE);
         }
 
-       
+     
 
-        // ボスならBGM戻す
-        if (CompareTag("Bose") && bossMusicStarted)
-        {
-            FindObjectOfType<BGMBossController>()?.StopBossMusic();
-        }
-
-        // アイテムドロップ
+        // 鍵ドロップ
         if (redKeyOrbPrefab != null)
             Instantiate(redKeyOrbPrefab, transform.position + Vector3.up, Quaternion.identity);
 
-        Destroy(gameObject);
+        // ★ 見た目と当たり判定を即消す
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        // ★ 音が鳴り終わったら完全削除
+        float delay = (CompareTag("Bose") && bossDeathSE != null)
+            ? bossDeathSE.length
+            : 0f;
+
+        Destroy(gameObject, delay);
+
+
+
     }
 
     // ====================================================

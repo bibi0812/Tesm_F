@@ -2124,7 +2124,7 @@ PrefabInstance:
     - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: bossDeathSE
       value: 
-      objectReference: {fileID: 8300000, guid: 54b886c751f8e7349a14ec3eb339279b, type: 3}
+      objectReference: {fileID: 8300000, guid: 74529d67d3d77c947a1a6ccd964888ce, type: 3}
     - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: breathPoint
       value: 
@@ -2167,7 +2167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.98
+      value: 5.83
       objectReference: {fileID: 0}
     - target: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2216,7 +2216,7 @@ PrefabInstance:
       addedObject: {fileID: 800216196}
     - targetCorrespondingSourceObject: {fileID: 2607797301320330531, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 800216201}
+      addedObject: {fileID: 800216206}
   m_SourcePrefab: {fileID: 100100000, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
 --- !u!1001 &741822358
 PrefabInstance:
@@ -2500,7 +2500,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &800216201
+--- !u!82 &800216206
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2511,7 +2511,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 54b886c751f8e7349a14ec3eb339279b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 74529d67d3d77c947a1a6ccd964888ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5038,11 +5038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.68
+      value: 122.4
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
