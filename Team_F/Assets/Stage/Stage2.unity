@@ -127,6 +127,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Size.x
+      value: 6.394433
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2058353
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.13778353
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07348442
+      objectReference: {fileID: 0}
     - target: {fileID: 472090111329050480, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -942,6 +958,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Size.x
+      value: 6.3587046
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.15564775
+      objectReference: {fileID: 0}
+    - target: {fileID: 472090111329050480, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 759586392449620955, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
       propertyPath: m_Name
       value: slime (5)
@@ -2459,11 +2487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.57
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.28
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 8700781121435811529, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2829,8 +2857,8 @@ Transform:
   m_GameObject: {fileID: 1207529058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6156855, y: 5.320486, z: -10}
-  m_LocalScale: {x: 1.2969245, y: 3.8276868, z: 1}
+  m_LocalPosition: {x: 4.383535, y: 0.54978055, z: -10}
+  m_LocalScale: {x: 1.2969245, y: 3.827687, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713372423}
@@ -2960,8 +2988,8 @@ Transform:
   m_GameObject: {fileID: 1249327460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 73.3503, y: 10.6204, z: 0}
-  m_LocalScale: {x: 27.137062, y: 8.001109, z: 1}
+  m_LocalPosition: {x: 72.6588, y: 10.6204, z: 0}
+  m_LocalScale: {x: 30.620655, y: 8.001109, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4025,7 +4053,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1414969}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4035,7 +4063,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.67, y: 3.61}
+  m_Size: {x: 6.67, y: 3.3270063}
   m_EdgeRadius: 0
 --- !u!4 &1956537443 stripped
 Transform:
@@ -4745,6 +4773,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Size.x
+      value: 6.4268494
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Size.y
+      value: 3.549212
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10637665
+      objectReference: {fileID: 0}
+    - target: {fileID: -2224676412657820285, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.030393839
+      objectReference: {fileID: 0}
     - target: {fileID: 759586392449620955, guid: adbbb74067df96744bac86a8190b6bad, type: 3}
       propertyPath: m_Name
       value: slime (3)
