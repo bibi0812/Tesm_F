@@ -45,7 +45,8 @@ public class EnemyPatrol : MonoBehaviour
     [Header("カギオーブ設定")]
     public GameObject redKeyOrbPrefab;    // 敵撃破時のドロップ
 
-    
+
+    private bool isDead = false;
     private SpriteRenderer spriteRenderer;
     private Color defaultColor;
     private Coroutine flashCoroutine;
@@ -96,16 +97,14 @@ public class EnemyPatrol : MonoBehaviour
     // ====================================================
     void Update()
     {
+        if (isDead) return;
         if (!player) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // 範囲内なら追跡開始
         if (distanceToPlayer <= detectionRange) isChasing = true;
-        // 離れたら追跡終了
         else if (distanceToPlayer > stopChaseRange) isChasing = false;
 
-        // 追跡中のみ攻撃チェック
         if (isChasing) TryAttackPlayer();
     }
 
@@ -114,6 +113,8 @@ public class EnemyPatrol : MonoBehaviour
     // ====================================================
     void FixedUpdate()
     {
+        if (isDead) return;
+
         if (isChasing) ChasePlayer();
         else Patrol();
     }
@@ -148,30 +149,44 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
+
+        if (isDead) return;
+        isDead = true;
+
+        // ★ すべての行動を即停止
+        rb.linearVelocity = Vector2.zero;
+        rb.simulated = false;          // Rigidbody2D 完全停止
+        isChasing = false;
+
+        // ★ コルーチン停止（色フラッシュ対策）
+        StopAllCoroutines();
+
+        // ★ 攻撃を今後一切させない
+        lastAttackTime = float.MaxValue;
+
         // ボス撃破音
         if (CompareTag("Bose") && bossDeathSE != null && audioSource != null)
         {
             audioSource.PlayOneShot(bossDeathSE);
         }
 
-     
-
-        // 鍵ドロップ
+        // 鍵ドロップ（1回だけ）
         if (redKeyOrbPrefab != null)
             Instantiate(redKeyOrbPrefab, transform.position + Vector3.up, Quaternion.identity);
 
-        // ★ 見た目と当たり判定を即消す
+        // 見た目と当たり判定を即削除
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
+        spriteRenderer.enabled = false;
 
-        // ★ 音が鳴り終わったら完全削除
+        // ★ EnemyPatrol 自体を無効化（超重要）
+        enabled = false;
+
+        // ★ SE 再生後に完全削除
         float delay = (CompareTag("Bose") && bossDeathSE != null)
             ? bossDeathSE.length
             : 0f;
 
         Destroy(gameObject, delay);
-
-
 
     }
 
@@ -234,19 +249,16 @@ public class EnemyPatrol : MonoBehaviour
     // ====================================================
     void Attack()
     {
+        if (isDead) return;   // ★ 念押し
         if (!breathPoint || !fireBreathPrefab) return;
 
-        // 方向計算
         Vector2 direction = (player.position - breathPoint.position).normalized;
 
-        // 口から発射
         GameObject breath = Instantiate(fireBreathPrefab, breathPoint.position, Quaternion.identity);
 
-        // 移動処理
         Rigidbody2D br = breath.GetComponent<Rigidbody2D>();
         if (br != null) br.linearVelocity = direction * 15f;
 
-        // 見た目の向きを調整
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         breath.transform.rotation = Quaternion.Euler(0, 0, angle);
 
