@@ -3,12 +3,13 @@ using UnityEngine;
 public class AimFlipX : MonoBehaviour
 {
     public SpriteRenderer sprite;
+    public Transform graphics; // Graphicsオブジェクト
 
     void Update()
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // マウスが右にあったら反転
-        sprite.flipX = mouseWorldPos.x > transform.position.x;
+        bool mouseRight = mouseWorldPos.x > transform.position.x;
+        sprite.flipX = mouseRight;
     }
 }

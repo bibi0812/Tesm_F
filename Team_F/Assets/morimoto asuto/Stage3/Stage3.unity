@@ -5114,6 +5114,10 @@ PrefabInstance:
       value: 0.8404609
       objectReference: {fileID: 0}
     - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d6cede8f073847a4fac861ff40d1c096, type: 2}
+    - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_Offset.x
       value: 0.4097696
       objectReference: {fileID: 0}
@@ -5122,12 +5126,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5365146661473599937, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365146661473599937, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_GravityScale
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5365146661473599937, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_LinearDamping
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365146661473599937, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: objPrefab
@@ -5288,6 +5300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2027196062}
+  graphics: {fileID: 0}
 --- !u!1 &2042201595
 GameObject:
   m_ObjectHideFlags: 0
