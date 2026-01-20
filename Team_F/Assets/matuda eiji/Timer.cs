@@ -6,15 +6,13 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     float time;
 
-    void Start()
-    {
-        timerText.text = "TEST";
-    }
-
-
     void Update()
     {
         time += Time.deltaTime;
-        timerText.text = time.ToString("F2");
+
+        int minutes = (int)(time / 60f);   // •ª
+        int seconds = (int)(time % 60f);   // •b
+
+        timerText.text = $"{minutes:00}:{seconds:00}";
     }
 }
