@@ -5142,6 +5142,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 2027196062}
+    - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: objPrefab
       value: 
       objectReference: {fileID: 9104511699613210338, guid: fa564c5a4cc655445b4ad375a375c391, type: 3}
@@ -5300,7 +5304,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2027196062}
-  graphics: {fileID: 0}
+  hitCollider: {fileID: 2027196066}
+  colliderOffsetX: -0.3
+--- !u!61 &2027196066 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+  m_PrefabInstance: {fileID: 2027196042}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2042201595
 GameObject:
   m_ObjectHideFlags: 0

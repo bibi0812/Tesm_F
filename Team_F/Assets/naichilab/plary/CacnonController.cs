@@ -28,11 +28,18 @@ public class CannonController : MonoBehaviour
 
     private int remainingShots = MAX_SHOTS; // 残り発射回数
 
+    public Transform gateTransform;
+
+    public float gateOffsetX = 0.5f; // 発射口の横ズレ量
+
+    public SpriteRenderer sprite;
+
+
     // (オプション) 残弾表示用のUI Textコンポーネント (インスペクタで設定)
 
     public Text remainingShotsText;
 
-    private Transform gateTransform; // 発射口（gate）のTransform
+    
 
     private Rigidbody2D cannonRbody; // 砲台自身のRigidbody2D
 
@@ -85,6 +92,20 @@ public class CannonController : MonoBehaviour
     void Update()
 
     {
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f;
+
+        bool mouseRight = mouseWorldPos.x > transform.position.x;
+
+        // 見た目反転
+        sprite.flipX = mouseRight;
+
+        // 発射口も左右に移動
+        Vector3 gateLocalPos = gateTransform.localPosition;
+        gateLocalPos.x = mouseRight ? Mathf.Abs(gateLocalPos.x) : -Mathf.Abs(gateLocalPos.x);
+        gateTransform.localPosition = gateLocalPos;
+
         // 死亡中は完全に操作禁止
         if (GameManager.isDead)
             return;
