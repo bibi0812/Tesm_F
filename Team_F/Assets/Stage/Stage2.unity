@@ -1715,6 +1715,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7923dcb8dacd05847be97579d5b97ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &713372445 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4033673868129760644, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+  m_PrefabInstance: {fileID: 1117838327}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &713372446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713372414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4d577e87fbd3448472aad68190a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 713372445}
+  edgeCollider: {fileID: 713372433}
+  colliderOffsetX: -0.95
 --- !u!1001 &728017005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2458,8 +2478,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Size.x
+      value: 0.73125046
+      objectReference: {fileID: 0}
+    - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2550695
+      objectReference: {fileID: 0}
+    - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.43623063
+      objectReference: {fileID: 0}
+    - target: {fileID: 182424537851695560, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.067394614
       objectReference: {fileID: 0}
     - target: {fileID: 5365146661473599937, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: m_Constraints
@@ -2473,6 +2509,10 @@ PrefabInstance:
       propertyPath: m_LinearDamping
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 713372445}
     - target: {fileID: 6046257037024969416, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       propertyPath: objPrefab
       value: 
@@ -2578,6 +2618,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7611848625019065484, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       insertIndex: -1
       addedObject: {fileID: 713372440}
+    - targetCorrespondingSourceObject: {fileID: 7611848625019065484, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713372446}
     - targetCorrespondingSourceObject: {fileID: 5388674084021203081, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       insertIndex: -1
       addedObject: {fileID: 783690722}
