@@ -110,7 +110,8 @@ public class CannonController : MonoBehaviour
         if (GameManager.isDead)
             return;
         // ポーズ中は何もしない
-        if (Menu.isPaused) return;
+        if (Menu.isPaused)
+            return;
         // マウスの左クリックが押されたときに弾を発射
 
         if (Input.GetMouseButtonDown(0))
@@ -136,14 +137,8 @@ public class CannonController : MonoBehaviour
         // 🔥 残弾チェック: 残り回数が0以下なら発射処理を中断
 
         if (remainingShots <= 0)
-
-        {
-
-            Debug.Log("残弾がありません。発射できませんでした。");
-
             return;
-
-        }
+        
 
         // プレハブや発射口が設定されていなければ処理を中断
 
@@ -152,14 +147,7 @@ public class CannonController : MonoBehaviour
         // メインカメラの存在チェック
 
         if (Camera.main == null)
-
-        {
-
-            Debug.LogError("Main Camera が見つかりません。");
-
             return;
-
-        }
 
         // (中略：マウス座標のワールド変換)
 
