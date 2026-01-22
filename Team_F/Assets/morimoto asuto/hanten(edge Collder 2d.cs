@@ -99,12 +99,18 @@ public class AimFlipX_Edge : MonoBehaviour
 
     void UpdateEdgeCollider(bool faceRight)
     {
-        // 死亡中は完全に操作禁止
+        //// 死亡中は完全に操作禁止
         if (GameManager.isDead)
-            return;
-        // ポーズ中は何もしない
-        if (Menu.isPaused)
-            return;
+        {
+            GameManager.isDead = true; // 操作禁止
+          
+        }
+        //// ポーズ中は何もしない
+        //if (Menu.isPaused)
+        //    return;
+
+
+
 
         Vector2[] newPoints = new Vector2[originalPoints.Length];
         float offsetX = faceRight ? colliderOffsetX : -colliderOffsetX;
