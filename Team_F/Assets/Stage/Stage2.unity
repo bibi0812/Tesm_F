@@ -1727,9 +1727,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713372414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bb4d577e87fbd3448472aad68190a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 713372445}
+  hitCollider: {fileID: 0}
+  colliderOffsetX: -0.95
+--- !u!114 &713372447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713372414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6f3b243599d04428c8b2ccbb56d66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 713372445}
@@ -2621,6 +2636,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7611848625019065484, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       insertIndex: -1
       addedObject: {fileID: 713372446}
+    - targetCorrespondingSourceObject: {fileID: 7611848625019065484, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713372447}
     - targetCorrespondingSourceObject: {fileID: 5388674084021203081, guid: 73b15fc56a0c4eb45979ff0953001140, type: 3}
       insertIndex: -1
       addedObject: {fileID: 783690722}

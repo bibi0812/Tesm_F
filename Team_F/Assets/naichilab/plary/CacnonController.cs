@@ -22,7 +22,7 @@ public class CannonController : MonoBehaviour
 
     public float recoilForce = 1.0f; // 砲台に加わる反動の強さ
 
-    // 🔥 新しく追加する変数
+    //  新しく追加する変数
 
     private const int MAX_SHOTS = 5; // 最大発射回数を定数として定義
 
