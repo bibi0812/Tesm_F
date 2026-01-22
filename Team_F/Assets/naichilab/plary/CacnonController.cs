@@ -124,6 +124,8 @@ public class CannonController : MonoBehaviour
 
     }
 
+    
+
     /// <summary>
 
     /// 弾を生成して発射する処理

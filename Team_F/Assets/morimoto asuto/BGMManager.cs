@@ -7,8 +7,10 @@ public class BGMManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip normalBGM;
     public AudioClip bossBGM;
+    public AudioClip clearBGM;
 
     bool isBossBattle = false;
+    bool isClearPlaying = false;
 
     private void Awake()
     {
@@ -23,28 +25,55 @@ public class BGMManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // ÉNÉäÉABGMÇ™èIÇÌÇ¡ÇΩÇÁí èÌBGMÇ…ñﬂÇ∑
+        if (isClearPlaying && !audioSource.isPlaying)
+        {
+            isClearPlaying = false;
+            PlayNormalBGM();
+        }
+    }
+
     public void StartBossBattle()
     {
-        if (isBossBattle) return;
+        if (isClearPlaying) return;
 
         isBossBattle = true;
-        ChangeBGM(bossBGM);
+        ChangeBGM(bossBGM, true);
     }
 
     public void EndBossBattle()
     {
-        if (!isBossBattle) return;
+        if (isClearPlaying) return;
 
         isBossBattle = false;
-        ChangeBGM(normalBGM);
+        PlayNormalBGM();
     }
 
-    void ChangeBGM(AudioClip clip)
+    public void PlayClearBGM()
     {
-        if (audioSource.clip == clip) return;
+        isBossBattle = false;
+        isClearPlaying = true;
+
+        audioSource.Stop();
+        audioSource.loop = false;
+        audioSource.clip = clearBGM;
+        audioSource.Play();
+    }
+
+    public void PlayNormalBGM()
+    {
+        ChangeBGM(normalBGM, true);
+    }
+
+    void ChangeBGM(AudioClip clip, bool loop)
+    {
+        if (audioSource.clip == clip && audioSource.loop == loop) return;
 
         audioSource.Stop();
         audioSource.clip = clip;
+        audioSource.loop = loop;
         audioSource.Play();
     }
 }
