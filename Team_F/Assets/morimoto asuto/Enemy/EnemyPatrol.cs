@@ -149,6 +149,7 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
+        BGMManager.Instance.PlayClearBGM();
 
         if (isDead) return;
         isDead = true;
