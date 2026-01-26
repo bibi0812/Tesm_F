@@ -33,9 +33,13 @@ public class BollReset : MonoBehaviour
         {
             if (!isFlashing)
                 StartCoroutine(DeathProcess());
-            BGMManager.Instance.EndBossBattle();
-            BGMManager.Instance.PlayNormalBGM();
 
+            BGMManager bgm = FindObjectOfType<BGMManager>();
+            if (bgm != null)
+            {
+                bgm.EndBossBattle();
+                bgm.PlayNormalBGM();
+            }
         }
     }
 

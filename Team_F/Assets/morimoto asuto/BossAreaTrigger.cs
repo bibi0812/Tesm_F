@@ -1,21 +1,23 @@
 using UnityEngine;
 
-// ボスエリアに入ったことを検知するためのクラス
+// ボスエリアにプレイヤーが入ったことを検知するクラス
 public class BossAreaTrigger : MonoBehaviour
 {
-    // BGMを管理するクラスへの参照
-    // （※この変数は現在は使われていません）
-    public BGMManager bgmManager;
-
-    // 2Dのトリガーコライダーに何かが入ったときに呼ばれる
+    // 他のCollider2Dがこのトリガーに入った瞬間に呼ばれる
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 侵入してきたオブジェクトのタグが「Player」かどうかをチェック
+        // 侵入してきたオブジェクトがプレイヤーかどうか確認
         if (other.CompareTag("Player"))
         {
-            // BGMManagerのシングルトンインスタンスを使って
-            // ボス戦用BGMを再生開始する
-            BGMManager.Instance.StartBossBattle();
+            // シーン内に存在するBGMManagerを探す
+            BGMManager bgm = FindObjectOfType<BGMManager>();
+
+            // BGMManagerが見つかった場合のみ処理する（null対策）
+            if (bgm != null)
+            {
+                // ボス戦用BGMの再生を開始する
+                bgm.StartBossBattle();
+            }
         }
     }
 }

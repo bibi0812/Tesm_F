@@ -149,20 +149,21 @@ public class EnemyPatrol : MonoBehaviour
     // 死亡処理
     void Die()
     {
-        BGMManager.Instance.PlayClearBGM();
+        // ★ BGM切り替え（ボス撃破）
+        BGMManager bgm = FindObjectOfType<BGMManager>();
+        if (bgm != null)
+        {
+            bgm.PlayClearBGM();
+        }
 
         if (isDead) return;
         isDead = true;
 
-        // ★ すべての行動を即停止
         rb.linearVelocity = Vector2.zero;
-        rb.simulated = false;          // Rigidbody2D 完全停止
+        rb.simulated = false;
         isChasing = false;
 
-        // ★ コルーチン停止（色フラッシュ対策）
         StopAllCoroutines();
-
-        // ★ 攻撃を今後一切させない
         lastAttackTime = float.MaxValue;
 
         // ボス撃破音
@@ -171,24 +172,19 @@ public class EnemyPatrol : MonoBehaviour
             audioSource.PlayOneShot(bossDeathSE);
         }
 
-        // 鍵ドロップ（1回だけ）
         if (redKeyOrbPrefab != null)
             Instantiate(redKeyOrbPrefab, transform.position + Vector3.up, Quaternion.identity);
 
-        // 見た目と当たり判定を即削除
         GetComponent<Collider2D>().enabled = false;
         spriteRenderer.enabled = false;
 
-        // ★ EnemyPatrol 自体を無効化（超重要）
         enabled = false;
 
-        // ★ SE 再生後に完全削除
         float delay = (CompareTag("Bose") && bossDeathSE != null)
             ? bossDeathSE.length
             : 0f;
 
         Destroy(gameObject, delay);
-
     }
 
     // ====================================================
