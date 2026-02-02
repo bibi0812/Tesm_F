@@ -4,6 +4,9 @@ public class ButtonSE : MonoBehaviour
 {
     public void PlaySE()
     {
-        SEManager.Instance.PlayClick();
+        if (SEManager.Instance != null)
+        {
+            SEManager.Instance.PlayClick();
+        }
     }
 }

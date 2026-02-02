@@ -23,4 +23,8 @@ public class SEManager : MonoBehaviour
     {
         audioSource.PlayOneShot(clickSE);
     }
+    public void StopAll()
+    {
+        audioSource.Stop();
+    }
 }
