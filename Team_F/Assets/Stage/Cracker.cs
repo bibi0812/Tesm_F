@@ -17,5 +17,6 @@ public class Cracker : MonoBehaviour
     {
         // š timeScale –³‹‚Å“®‚©‚·
         transform.Translate(direction * speed * Time.unscaledDeltaTime);
+
     }
 }
