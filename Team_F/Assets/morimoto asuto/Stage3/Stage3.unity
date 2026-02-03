@@ -2583,7 +2583,7 @@ PrefabInstance:
       objectReference: {fileID: 1405634164}
     - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: detectionRange
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -5908353072283015120, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: stopChaseRange
@@ -2615,11 +2615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 139.03
+      value: 140.66
       objectReference: {fileID: 0}
     - target: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.83
+      value: 10.27
       objectReference: {fileID: 0}
     - target: {fileID: 7728329018724422669, guid: 2ef06ae58661baa4fb247f815e323394, type: 3}
       propertyPath: m_LocalPosition.z
