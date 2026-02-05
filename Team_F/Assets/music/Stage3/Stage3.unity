@@ -1913,6 +1913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5844504305163115406, guid: d9a1f3a9889792b41b13ebbe3e9025ac, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8842581456240922308, guid: d9a1f3a9889792b41b13ebbe3e9025ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
