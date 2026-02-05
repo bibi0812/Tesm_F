@@ -69,6 +69,12 @@ public class RedKeyDoor : MonoBehaviour
         {
             audioSource.PlayOneShot(clickSE);
         }
+        // 1. 音を鳴らす
+        if (audioSource != null && clickSE != null)
+        {
+            audioSource.pitch = 1.2f; // 少し高くして耳に残りやすくする
+            audioSource.PlayOneShot(clickSE, 1.0f);
+        }
 
         // 2. 見た目（Renderer）と当たり判定（Collider）を消す
         // これでプレイヤーからは「消えた」ように見える
